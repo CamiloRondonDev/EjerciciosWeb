@@ -1,0 +1,40 @@
+body{ background-color: bisque;
+}
+
+ h1{
+text-align: center;
+} 
+
+#encabezado{
+font-weight: 530; 
+font-size: 20px;
+text-align: center;
+line-height: 30px; /* interlinado */
+}
+
+.flex-container{
+
+border: solid brown;
+background: beige; /* fondo*/
+padding: 20px; /* para separar las cajas de los bordes*/
+display: flex; /* organizacion de las cajas*/
+flex-flow: row wrap; /* */
+width: 80%; /* ancho del contenedor*/
+margin: 0 auto; /* margen de la pagina*/
+justify-content: center; /* la posicion de las cajas*/
+
+}
+
+.caja{
+    border: 1px solid rgb(66, 66, 66);
+    background-color: aliceblue;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    width:430px ; /* tamaño */
+    height: 330px; /* altura */
+    line-height: 25px;/* para sentrar y alinear */
+    text-align: center;/* para sentrar texto */
+    margin:5px;
+    padding: 10px;
+}
