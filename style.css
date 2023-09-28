@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-body{ background-color: bisque;
-=======
 body{ background-color: rgb(255, 246, 234);
->>>>>>> Stashed changes
 }
 
  h1{
@@ -18,13 +14,8 @@ line-height: 30px; /* interlinado */
 
 .flex-container{
 
-<<<<<<< Updated upstream
 border: solid brown;
 background: beige; /* fondo*/
-=======
-border: solid rgb(197, 134, 134);
-background: rgb(252, 241, 234); /* fondo*/
->>>>>>> Stashed changes
 padding: 20px; /* para separar las cajas de los bordes*/
 display: flex; /* organizacion de las cajas*/
 flex-flow: row wrap; /* */
@@ -35,13 +26,8 @@ justify-content: center; /* la posicion de las cajas*/
 }
 
 .caja{
-<<<<<<< Updated upstream
     border: 1px solid rgb(66, 66, 66);
     background-color: aliceblue;
-=======
-    border: 1px solid rgb(108, 106, 106);
-    background-color: rgb(226, 241, 255);
->>>>>>> Stashed changes
     color: black;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
