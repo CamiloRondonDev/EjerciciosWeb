@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// ejercicio 7 -- pendiente por desarrollar
+// ejercicio 7 
 document.addEventListener("DOMContentLoaded", () => {
     const bntAbrirmodal = document.querySelector(".bin-abrir-modal7");
     const bntCerrarmodal = document.querySelector(".bin-cerrar-modal7");
@@ -168,7 +168,9 @@ document.addEventListener("DOMContentLoaded", () => {
             restul= n1;
         }else if(n2 >= n1 && n2 >= n3){
             restul= n2;
-        }else{restul= n3;}
+        }else{
+            restul= n3;
+        }
 
         document.getElementById('mostrar-resul7').textContent = restul   // muestra el resultado 
     })
@@ -219,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bntAbrirmodal .addEventListener("click", () => {
         modal.setAttribute("open", "true");
-    });8
+    });
 
     bntCalcular.addEventListener("click", ()=>{
         var num1 = parseInt(document.getElementById('dato1').value); // toma el valor del input
@@ -232,10 +234,47 @@ document.addEventListener("DOMContentLoaded", () => {
             resul = "el numero mas grande es el: " + num2 ;
             console.log("entro2")
         }
-        
         document.getElementById('mostrar-resul9').textContent = resul   // muestra el resultado 
     })
+    bntCerrarmodal.addEventListener("click", () => {
+       modal.removeAttribute("open");
+    
+    });
+});
 
+// ejercicio 10
+document.addEventListener("DOMContentLoaded", () => {
+    const bntAbrirmodal = document.querySelector(".bin-abrir-modal10");
+    const bntCerrarmodal = document.querySelector(".bin-cerrar-modal10");
+    const bntCalcular = document.querySelector(".bin-CalArea-modal10");
+    const modal = document.querySelector(".modal10");
+    var resul = ""
+
+    bntAbrirmodal.addEventListener("click", () => {
+        modal.setAttribute("open", "true");
+    });
+
+    bntCalcular.addEventListener("click", ()=>{
+        var a = parseInt(document.getElementById('a').value); // toma el valor del input
+        var b = parseInt(document.getElementById('b').value); // toma el valor del input
+        var c = parseInt(document.getElementById('c').value); // toma el valor del input
+
+        if(a==b||a==c||b==c){
+            alert("Hay al menos dos números iguales");
+        }else{
+           
+            if(a >= b && a >= c){
+                resul= a;
+            }else if(b >= a && b >= c){
+                resul= b;
+            }else{
+                resul= c;
+            }
+        }
+
+
+        document.getElementById('mostrar-resul10').textContent = resul   // muestra el resultado 
+    })
     bntCerrarmodal.addEventListener("click", () => {
        modal.removeAttribute("open");
     
