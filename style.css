@@ -1,57 +1,77 @@
-body{ background-color: rgb(255, 246, 234);
+body {
+    background-color: rgb(220, 255, 239);
 }
 
- h1{
-text-align: center;
-} 
-
-#encabezado{
-font-weight: 530; 
-font-size: 20px;
-text-align: center;
-line-height: 30px; /* interlinado */
+h1 {
+    text-align: center;
 }
 
-.flex-container{
+#encabezado {
+    font-weight: 530;
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;/* interlinado */
+}
 
-border: solid brown;
-background: beige; /* fondo*/
-padding: 20px; /* para separar las cajas de los bordes*/
-display: flex; /* organizacion de las cajas*/
-flex-flow: row wrap; /* */
-width: 80%; /* ancho del contenedor*/
-margin: 0 auto; /* margen de la pagina*/
-justify-content: center; /* la posicion de las cajas*/
+.flex-container {
+
+    border: solid rgb(16, 236, 12);
+    background: rgb(252, 252, 246);/* fondo*/
+    padding: 20px;/* para separar las cajas de los bordes*/
+    display: flex;/* organizacion de las cajas*/
+    flex-flow: row wrap;/* */
+    width: 80%;/* ancho del contenedor*/
+    margin: 0 auto;/* margen de la pagina*/
+    justify-content: center;/* la posicion de las cajas*/
 
 }
 
-.caja{
-    border: 1px solid rgb(66, 66, 66);
-    background-color: aliceblue;
+.caja {
+    border: 1px solid rgb(0, 146, 15);
+    background-color: rgb(196, 253, 213);
     color: black;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
-    width:430px ; /* tamaño */
-    height: 330px; /* altura */
-    line-height: 25px;/* para sentrar y alinear */
+    width: 430px; /* tamaño */
+    height: 330px;/* altura */
+    line-height: 30px ;/* para sentrar y alinear */
     text-align: center;/* para sentrar texto */
-    margin:5px;
+    margin: 5px;
     padding: 10px;
-}
-#modal{
-    height: 150px;
-    width: 500px;
+    display: grid;
+    place-content: center;
 }
 
-#bin-abrir-modal{
-  border: none; 
-  color:black; 
-  padding: 14px 28px; 
-  cursor: pointer; 
-  border-radius: 5px;
-  background-color: white; border: 2px solid #f44336;
+button {
+    height: 40px;
+    width: 100px;
+    border: none;
+    color: black;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: white;
+    border: 2px solid #00eb4a;
+    place-self: center; /*centrar boton*/
+    
 }
 
-#bin-abrir-modal:hover{
-    background: #f58981; color: white;
+dialog {
+    border: none;
+    color: black;
+    padding: 14px 28px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: white;
+    border: 2px solid #03ca59;
+
+     flex-direction: column;/*centar*/
+     align-items: justify;
+    justify-content: center; 
 }
+
+button:hover {
+    background: #65fc86;
+    color: white;
+}
+
+span{color: #0d0ddf;}

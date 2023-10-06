@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bntCalcular.addEventListener("click", ()=>{
         var lado = parseInt(document.getElementById('lado').value);
-        var resultado = "El área de este cuadro es de: " + lado * lado;
+        var resultado =  lado * lado;
         document.getElementById('mostrar-resul').textContent = resultado
     })
 
@@ -161,8 +161,15 @@ document.addEventListener("DOMContentLoaded", () => {
         var n1 = parseInt(document.getElementById('N1').value); // toma el valor del input
         var n2 = parseInt(document.getElementById('N2').value); // toma el valor del input
         var n3 = parseInt(document.getElementById('N3').value); // toma el valor del input
-    
+     
         var restul = ""
+
+        if(n1 >= n2 && n1 >= n3){
+            restul= n1;
+        }else if(n2 >= n1 && n2 >= n3){
+            restul= n2;
+        }else{restul= n3;}
+
         document.getElementById('mostrar-resul7').textContent = restul   // muestra el resultado 
     })
 
