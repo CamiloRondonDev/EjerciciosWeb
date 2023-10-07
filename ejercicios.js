@@ -468,3 +468,176 @@ document.addEventListener("DOMContentLoaded", () => {
     
     });
 });
+
+// ejercicio 16
+document.addEventListener("DOMContentLoaded", () => {
+    const bntAbrirmodal = document.querySelector(".bin-abrir-modal16");
+    const bntCerrarmodal = document.querySelector(".bin-cerrar-modal16");
+    const bntCalcular = document.querySelector(".bin-CalArea-modal16");
+    const modal = document.querySelector(".modal16");
+    var resul = "";
+
+    bntAbrirmodal.addEventListener("click", () => {
+        modal.setAttribute("open", "true");
+    });
+
+    bntCalcular.addEventListener("click", ()=>{
+
+        var catOpu = parseInt(document.getElementById('catOpu').value); // toma el valor del input
+        var catAdy = parseInt(document.getElementById('catAdy').value); // toma el valor del input
+
+       console.log("entro")
+        resul = "La hipotenusa es de: " + Math.sqrt(Math.pow(catOpu,2) + Math.pow(catAdy,2));
+        
+
+        document.getElementById('mostrar-resul16').textContent = resul   // muestra el resultado 
+    })
+    bntCerrarmodal.addEventListener("click", () => {
+       modal.removeAttribute("open");
+    
+    });
+});
+
+// ejercicio 17
+document.addEventListener("DOMContentLoaded", () => {
+    const bntAbrirmodal = document.querySelector(".bin-abrir-modal17");
+    const bntCerrarmodal = document.querySelector(".bin-cerrar-modal17");
+    const bntCalcular = document.querySelector(".bin-CalArea-modal17");
+    const modal = document.querySelector(".modal17");
+    var resul = "";
+
+    bntAbrirmodal.addEventListener("click", () => {
+        modal.setAttribute("open", "true");
+    });
+
+    bntCalcular.addEventListener("click", ()=>{
+
+        var rad = parseInt(document.getElementById('rad').value); // toma el valor del input
+        var alt = parseInt(document.getElementById('alt').value); // toma el valor del input
+
+        resul = 2 * Math.PI * rad *(rad + alt)
+      
+
+        document.getElementById('mostrar-resul17').textContent = resul   // muestra el resultado 
+    })
+    bntCerrarmodal.addEventListener("click", () => {
+       modal.removeAttribute("open");
+    
+    });
+});
+
+// ejercicio 18
+document.addEventListener("DOMContentLoaded", () => {
+    const bntAbrirmodal = document.querySelector(".bin-abrir-modal18");
+    const bntCerrarmodal = document.querySelector(".bin-cerrar-modal18");
+    const bntCalcular = document.querySelector(".bin-CalArea-modal18");
+    const modal = document.querySelector(".modal18");
+    var resul = "";
+
+    bntAbrirmodal.addEventListener("click", () => {
+        modal.setAttribute("open", "true");
+    });
+
+    bntCalcular.addEventListener("click", ()=>{
+
+        var numCual = parseInt(document.getElementById('numCual').value); // toma el valor del input
+     
+        if((numCual % 2) == 0){
+            console.log("par");
+            resul = `El número ${numCual} es par`;
+        }else{
+            console.log("impar");
+            resul = `El número ${numCual} es impar`;
+        }
+    
+        document.getElementById('mostrar-resul18').textContent = resul   // muestra el resultado 
+    })
+    bntCerrarmodal.addEventListener("click", () => {
+       modal.removeAttribute("open");
+    
+    });
+});
+
+// ejercicio 19 --PENDIENTE POR TERMINAR 
+document.addEventListener("DOMContentLoaded", () => {
+    const bntAbrirmodal = document.querySelector(".bin-abrir-modal19");
+    const bntCerrarmodal = document.querySelector(".bin-cerrar-modal19");
+    const bntCalcular = document.querySelector(".bin-CalArea-modal19");
+    const modal = document.querySelector(".modal19");
+    var resul = "";
+    let numeros = [];
+
+    bntAbrirmodal.addEventListener("click", () => {
+        modal.setAttribute("open", "true");
+    });
+
+    bntCalcular.addEventListener("click", ()=>{
+
+        let numero = parseInt(document.getElementById('numero').value);
+        if (!isNaN(numero)) {
+            if (numeros.length < 10) {
+                numeros.push(numero);
+                console.log(numeros);
+            } else {
+                alert('Ya ha ingresado 10 números.');
+            }
+        } else {
+            alert('Por favor, ingrese un número válido.');
+        }
+
+        for(i=0;i<10;i++){
+            console.log( numeros[i]);
+
+        }
+    
+        document.getElementById('mostrar-resul19').textContent = resul   // muestra el resultado 
+    })
+    bntCerrarmodal.addEventListener("click", () => {
+       modal.removeAttribute("open");
+    
+    });
+});
+
+// ejercicio 20
+document.addEventListener("DOMContentLoaded", () => {
+    const bntAbrirmodal = document.querySelector(".bin-abrir-modal20");
+    const bntCerrarmodal = document.querySelector(".bin-cerrar-modal20");
+    const bntCalcular = document.querySelector(".bin-CalArea-modal20");
+    const modal = document.querySelector(".modal20");
+    var resul = "";
+    var numeros = [];
+
+    bntAbrirmodal.addEventListener("click", () => {
+        modal.setAttribute("open", "true");
+    });
+
+    bntCalcular.addEventListener("click", ()=>{
+
+        var nume1 = parseInt(document.getElementById('nume1').value); // toma el valor del input
+        var nume2 = parseInt(document.getElementById('nume2').value); // toma el valor del input
+
+        if(nume1 > nume2){       //mayor N1
+            numeros.push(nume2);
+            numeros.push(nume1);
+        }else if(nume2 > nume1){ //mayor N2
+            numeros.push(nume1);
+            numeros.push(nume2);
+        } else{                  //iguales
+            numeros.push(nume2);
+            numeros.push(nume1);
+        }
+        
+        console.log(numeros[0]);
+        console.log(numeros[1]);
+
+        document.getElementById('mostrar-resul20').textContent = resul   // muestra el resultado 
+        numeros.splice(0, numeros.length);
+        document.getElementById('nume1').value = "";
+        document.getElementById('nume2').value = "";
+        
+    })
+    bntCerrarmodal.addEventListener("click", () => {
+       modal.removeAttribute("open");
+    
+    });
+});
