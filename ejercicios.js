@@ -280,3 +280,191 @@ document.addEventListener("DOMContentLoaded", () => {
     
     });
 });
+
+// ejercicio 11
+document.addEventListener("DOMContentLoaded", () => {
+    const bntAbrirmodal = document.querySelector(".bin-abrir-modal11");
+    const bntCerrarmodal = document.querySelector(".bin-cerrar-modal11");
+    const bntCalcular = document.querySelector(".bin-CalArea-modal11");
+    const modal = document.querySelector(".modal11");
+    var resul = "";
+
+
+    bntAbrirmodal.addEventListener("click", () => {
+        modal.setAttribute("open", "true");
+    });
+
+    bntCalcular.addEventListener("click", ()=>{
+
+        var arr1 = parseInt(document.getElementById('arr1').value); // toma el valor del input
+        var arr2 = parseInt(document.getElementById('arr2').value); // toma el valor del input
+        var arr3 = parseInt(document.getElementById('arr3').value); // toma el valor del input
+        var arr4 = parseInt(document.getElementById('arr4').value); // toma el valor del input
+    
+        let arr = [arr1, arr2,arr3,arr4];
+
+
+        var len = arr.length;
+        for (var i = 0; i < len-1; i++) {
+            for (var j = 0; j < len-i-1; j++) {
+                if (arr[j] > arr[j+1]) {
+                     //Intercambiar arr[j] y arr[j+1]
+                    var temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+
+        for(i=0;i<4;i++){
+            console.log(arr[i] + " " +i);
+        }
+
+        resul = `el numero más grande es: ${arr[arr.length-1]} y el más bajo es: ${arr[0]}`  //` alt + 96 para sacar la comillita
+
+        document.getElementById('mostrar-resul11').textContent = resul   // muestra el resultado 
+    })
+    bntCerrarmodal.addEventListener("click", () => {
+       modal.removeAttribute("open");
+    
+    });
+});
+
+// ejercicio 12
+document.addEventListener("DOMContentLoaded", () => {
+    const bntAbrirmodal = document.querySelector(".bin-abrir-modal12");
+    const bntCerrarmodal = document.querySelector(".bin-cerrar-modal12");
+    const bntCalcular = document.querySelector(".bin-CalArea-modal12");
+    const modal = document.querySelector(".modal12");
+    var resul = "";
+    var contador = 0;
+
+
+    bntAbrirmodal.addEventListener("click", () => {
+        modal.setAttribute("open", "true");
+    });
+
+    bntCalcular.addEventListener("click", ()=>{
+
+        for(i=1;i<=10;i++){
+            console.log(i);
+            contador += i;
+        }
+
+        resul = `el la suma es: ${contador} `  //` alt + 96 para sacar la comillita
+
+        document.getElementById('mostrar-resul12').textContent = resul   // muestra el resultado 
+    })
+    bntCerrarmodal.addEventListener("click", () => {
+       modal.removeAttribute("open");
+    
+    });
+});
+
+// ejercicio 13
+document.addEventListener("DOMContentLoaded", () => {
+    const bntAbrirmodal = document.querySelector(".bin-abrir-modal13");
+    const bntCerrarmodal = document.querySelector(".bin-cerrar-modal13");
+    const bntCalcular = document.querySelector(".bin-CalArea-modal13");
+    const modal = document.querySelector(".modal13");
+    var resul = "";
+    var contador = 0;
+
+    bntAbrirmodal.addEventListener("click", () => {
+        modal.setAttribute("open", "true");
+    });
+
+    bntCalcular.addEventListener("click", ()=>{
+
+        for(i=1;i<=100;i++){
+            //console.log(i);
+            
+
+            if((i % 5) == 0){
+                console.log(i);
+                contador += i;
+            }
+        }
+        console.log(contador);
+
+        resul = `el la suma de los multiplos de 5 es: ${contador} `  //` alt + 96 para sacar la comillita
+
+        document.getElementById('mostrar-resul13').textContent = resul   // muestra el resultado 
+    })
+    bntCerrarmodal.addEventListener("click", () => {
+       modal.removeAttribute("open");
+    
+    });
+});
+
+// ejercicio 14
+document.addEventListener("DOMContentLoaded", () => {
+    const bntAbrirmodal = document.querySelector(".bin-abrir-modal14");
+    const bntCerrarmodal = document.querySelector(".bin-cerrar-modal14");
+    const bntCalcular = document.querySelector(".bin-CalArea-modal14");
+    const modal = document.querySelector(".modal14");
+    var resul = "";
+    var contador = 0;
+
+    bntAbrirmodal.addEventListener("click", () => {
+        modal.setAttribute("open", "true");
+    });
+
+    bntCalcular.addEventListener("click", ()=>{
+
+        for(i=1;i<=100;i++){
+            //console.log(i);
+            
+
+            if((i % 2) == 0){
+                console.log(i);
+                contador += i;
+            }
+        }
+        console.log(contador);
+
+        resul = `el la suma de los numeros pares es: ${contador} `  //` alt + 96 para sacar la comillita
+
+        document.getElementById('mostrar-resul14').textContent = resul   // muestra el resultado 
+    })
+    bntCerrarmodal.addEventListener("click", () => {
+       modal.removeAttribute("open");
+    
+    });
+});
+
+// ejercicio 15
+document.addEventListener("DOMContentLoaded", () => {
+    const bntAbrirmodal = document.querySelector(".bin-abrir-modal15");
+    const bntCerrarmodal = document.querySelector(".bin-cerrar-modal15");
+    const bntCalcular = document.querySelector(".bin-CalArea-modal15");
+    const modal = document.querySelector(".modal15");
+    var resul = "";
+    var contador = 0;
+
+    bntAbrirmodal.addEventListener("click", () => {
+        modal.setAttribute("open", "true");
+    });
+
+    bntCalcular.addEventListener("click", ()=>{
+
+        for(i=1;i<=300;i++){
+            //console.log(i);
+        
+            if((i % 2) == 0){
+                console.log(i);
+                contador += 1;
+            }
+        }
+        console.log(contador);
+
+        resul = `existen ${contador} pares `  //` alt + 96 para sacar la comillita
+        contador = 0;
+
+        document.getElementById('mostrar-resul15').textContent = resul   // muestra el resultado 
+    })
+    bntCerrarmodal.addEventListener("click", () => {
+       modal.removeAttribute("open");
+    
+    });
+});
