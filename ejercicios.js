@@ -13,8 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
         var lado = parseInt(document.getElementById('lado').value);
         var resultado =  lado * lado;
         document.getElementById('mostrar-resul').textContent = resultado
+        document.getElementById('lado').value = "";
     })
-
+    
+    
     bntCerrarmodal.addEventListener("click", () => {
        modal.removeAttribute("open");
     
@@ -36,7 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
     bntCalcular.addEventListener("click", ()=>{
         var radio = parseInt(document.getElementById('radio').value); // toma el valor del input
         var resultado = Math.PI * Math.pow(radio,2);
-        document.getElementById('mostrar-resul2').textContent = resultado.toFixed(2)// muestra el resultado 
+        document.getElementById('mostrar-resul2').textContent = resultado.toFixed(2)// muestra el resultado
+        document.getElementById('radio').value = ""; 
     })
 
     bntCerrarmodal.addEventListener("click", () => {
@@ -60,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         var Fahrenheit = parseInt(document.getElementById('Fahrenheit').value); // toma el valor del input
         var resultado = ((Fahrenheit - 32) * 5 ) / 9
         document.getElementById('mostrar-resul3').textContent = resultado.toFixed(2)// muestra el resultado 
+        document.getElementById('Fahrenheit').value = ""; 
     })
 
     bntCerrarmodal.addEventListener("click", () => {
@@ -249,6 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const bntCalcular = document.querySelector(".bin-CalArea-modal10");
     const modal = document.querySelector(".modal10");
     var resul = ""
+    var resul2 = ""
 
     bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
@@ -272,8 +277,22 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
+        if(a==b||a==c||b==c){
+            alert("Hay al menos dos números iguales");
+        }else{
+           
+            if(a <= b && a <= c){
+                resul2= a;
+            }else if(b <= a && b <= c){
+                resul2= b;
+            }else{
+                resul2= c;
+            }
+        }
 
-        document.getElementById('mostrar-resul10').textContent = resul   // muestra el resultado 
+
+        document.getElementById('mostrar-resul10').textContent = " El mayor es "+ resul   // muestra el resultado
+        document.getElementById('mostrar-resul210').textContent = " El menor es "+ resul2   // muestra el resultado  
     })
     bntCerrarmodal.addEventListener("click", () => {
        modal.removeAttribute("open");
@@ -518,7 +537,7 @@ document.addEventListener("DOMContentLoaded", () => {
         resul = 2 * Math.PI * rad *(rad + alt)
       
 
-        document.getElementById('mostrar-resul17').textContent = resul   // muestra el resultado 
+        document.getElementById('mostrar-resul17').textContent = "El área es:"+ resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
        modal.removeAttribute("open");
@@ -630,7 +649,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(numeros[0]);
         console.log(numeros[1]);
 
-        document.getElementById('mostrar-resul20').textContent = resul   // muestra el resultado 
+        document.getElementById('mostrar-resul20').textContent = numeros   // muestra el resultado 
         numeros.splice(0, numeros.length);
         document.getElementById('nume1').value = "";
         document.getElementById('nume2').value = "";
