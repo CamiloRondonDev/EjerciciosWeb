@@ -5,22 +5,48 @@ document.addEventListener("DOMContentLoaded", () => {
     const bntCalcular = document.querySelector(".bin-CalArea-modal");
     const modal = document.querySelector(".modal");
 
-    bntAbrirmodal .addEventListener("click", () => {
+    bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
-        var lado = parseInt(document.getElementById('lado').value);
-        var resultado =  lado * lado;
+    bntCalcular.addEventListener("click", () => {
+        // Obtén el valor del campo lado como texto
+        const ladoInput = document.getElementById('lado');
+        const mostrarResultado = document.getElementById('mostrar-resul');
+        const ladoTexto = ladoInput.value;
+
+        // Verifica si el campo lado está vacío
+        if (ladoTexto === "") {
+            alert("Por favor, ingrese un número.");
+            return;
+        }
+
+        // Convierte el texto a un número entero
+        const lado = parseInt(ladoTexto);
+
+        // Verifica si el valor ingresado es un número válido
+        if (isNaN(lado)) {
+            alert("Por favor, ingrese un número válido.");
+            return;
+        }
+
+        // Verifica si el número ingresado es igual a cero
+        if (lado === 0) {
+            alert("La medida del cuadrado no puede ser cero.");
+            return;
+        }
+
+
+        var resultado = lado * lado;
         document.getElementById('mostrar-resul').textContent = resultado
-        document.getElementById('lado').value = "";
+        ladoInput.value = "";
     })
-    
-    
+
+
     bntCerrarmodal.addEventListener("click", () => {
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 
@@ -31,21 +57,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const bntCalcular = document.querySelector(".bin-CalArea-modal2");
     const modal = document.querySelector(".modal2");
 
-    bntAbrirmodal .addEventListener("click", () => {
+    bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
         var radio = parseInt(document.getElementById('radio').value); // toma el valor del input
-        var resultado = Math.PI * Math.pow(radio,2);
+        var resultado = Math.PI * Math.pow(radio, 2);
         document.getElementById('mostrar-resul2').textContent = resultado.toFixed(2)// muestra el resultado
-        document.getElementById('radio').value = ""; 
+        document.getElementById('radio').value = "";
     })
 
     bntCerrarmodal.addEventListener("click", () => {
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 // ejercicio 3
@@ -55,21 +81,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const bntCalcular = document.querySelector(".bin-CalArea-modal3");
     const modal = document.querySelector(".modal3");
 
-    bntAbrirmodal .addEventListener("click", () => {
+    bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
         var Fahrenheit = parseInt(document.getElementById('Fahrenheit').value); // toma el valor del input
-        var resultado = ((Fahrenheit - 32) * 5 ) / 9
+        var resultado = ((Fahrenheit - 32) * 5) / 9
         document.getElementById('mostrar-resul3').textContent = resultado.toFixed(2)// muestra el resultado 
-        document.getElementById('Fahrenheit').value = ""; 
+        document.getElementById('Fahrenheit').value = "";
     })
 
     bntCerrarmodal.addEventListener("click", () => {
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 // ejercicio 4
@@ -79,11 +105,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const bntCalcular = document.querySelector(".bin-CalArea-modal4");
     const modal = document.querySelector(".modal4");
 
-    bntAbrirmodal .addEventListener("click", () => {
+    bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
         var num_1 = parseInt(document.getElementById('num1').value); // toma el valor del input
         var num_2 = parseInt(document.getElementById('num2').value); // toma el valor del input
         var suma = num_1 + num_2;
@@ -93,9 +119,9 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     bntCerrarmodal.addEventListener("click", () => {
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 // ejercicio 5
@@ -105,22 +131,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const bntCalcular = document.querySelector(".bin-CalArea-modal5");
     const modal = document.querySelector(".modal5");
 
-    bntAbrirmodal .addEventListener("click", () => {
+    bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
         var num_1 = parseInt(document.getElementById('num3').value); // toma el valor del input
         var num_2 = parseInt(document.getElementById('num4').value); // toma el valor del input
-    
-        var restul = "El número más grande es : " + Math.max(num_1,num_2)
+
+        var restul = "El número más grande es : " + Math.max(num_1, num_2)
         document.getElementById('mostrar-resul5').textContent = restul   // muestra el resultado 
     })
 
     bntCerrarmodal.addEventListener("click", () => {
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 // ejercicio 6
@@ -130,24 +156,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const bntCalcular = document.querySelector(".bin-CalArea-modal6");
     const modal = document.querySelector(".modal6");
 
-    bntAbrirmodal .addEventListener("click", () => {
+    bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
         var base = parseInt(document.getElementById('base').value); // toma el valor del input
         var altura = parseInt(document.getElementById('altura').value); // toma el valor del input
-    
-        var restul = base * altura / 2 
+
+        var restul = base * altura / 2
         document.getElementById('mostrar-resul6').textContent = restul   // muestra el resultado 
     })
 
     bntCerrarmodal.addEventListener("click", () => {
         document.getElementById('altura').value = ""
         document.getElementById('base').value = ""
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 // ejercicio 7 
@@ -157,32 +183,32 @@ document.addEventListener("DOMContentLoaded", () => {
     const bntCalcular = document.querySelector(".bin-CalArea-modal7");
     const modal = document.querySelector(".modal7");
 
-    bntAbrirmodal .addEventListener("click", () => {
+    bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
         var n1 = parseInt(document.getElementById('N1').value); // toma el valor del input
         var n2 = parseInt(document.getElementById('N2').value); // toma el valor del input
         var n3 = parseInt(document.getElementById('N3').value); // toma el valor del input
-     
+
         var restul = ""
 
-        if(n1 >= n2 && n1 >= n3){
-            restul= n1;
-        }else if(n2 >= n1 && n2 >= n3){
-            restul= n2;
-        }else{
-            restul= n3;
+        if (n1 >= n2 && n1 >= n3) {
+            restul = n1;
+        } else if (n2 >= n1 && n2 >= n3) {
+            restul = n2;
+        } else {
+            restul = n3;
         }
 
         document.getElementById('mostrar-resul7').textContent = restul   // muestra el resultado 
     })
 
     bntCerrarmodal.addEventListener("click", () => {
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 // ejercicio 8 
@@ -191,28 +217,28 @@ document.addEventListener("DOMContentLoaded", () => {
     const bntCerrarmodal = document.querySelector(".bin-cerrar-modal8");
     const bntCalcular = document.querySelector(".bin-CalArea-modal8");
     const modal = document.querySelector(".modal8");
-  
 
-    bntAbrirmodal .addEventListener("click", () => {
+
+    bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
         var restul = "";
-    
-        for(i = 1 ; i<8 ; i++){
+
+        for (i = 1; i < 8; i++) {
             restul += i + " ";
             console.log(i);
         }
-     
-        document.getElementById('mostrar-resul8').textContent = restul ;  // muestra el resultado 
+
+        document.getElementById('mostrar-resul8').textContent = restul;  // muestra el resultado 
     })
 
     bntCerrarmodal.addEventListener("click", () => {
         document.getElementById('mostrar-resul8').textContent = "";
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 // ejercicio 9
@@ -223,27 +249,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.querySelector(".modal9");
     var resul = ""
 
-    bntAbrirmodal .addEventListener("click", () => {
+    bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
         var num1 = parseInt(document.getElementById('dato1').value); // toma el valor del input
         var num2 = parseInt(document.getElementById('dato2').value); // toma el valor del input
-    
-        if(num1 > num2){
-            resul = "el numero mas grande es el: " + num1 ;
+
+        if (num1 > num2) {
+            resul = "el numero mas grande es el: " + num1;
             console.log("entro1")
-        }else{
-            resul = "el numero mas grande es el: " + num2 ;
+        } else {
+            resul = "el numero mas grande es el: " + num2;
             console.log("entro2")
         }
         document.getElementById('mostrar-resul9').textContent = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 // ejercicio 10
@@ -259,45 +285,45 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
         var a = parseInt(document.getElementById('a').value); // toma el valor del input
         var b = parseInt(document.getElementById('b').value); // toma el valor del input
         var c = parseInt(document.getElementById('c').value); // toma el valor del input
 
-        if(a==b||a==c||b==c){
+        if (a == b || a == c || b == c) {
             alert("Hay al menos dos números iguales");
-        }else{
-           
-            if(a >= b && a >= c){
-                resul= a;
-            }else if(b >= a && b >= c){
-                resul= b;
-            }else{
-                resul= c;
+        } else {
+
+            if (a >= b && a >= c) {
+                resul = a;
+            } else if (b >= a && b >= c) {
+                resul = b;
+            } else {
+                resul = c;
             }
         }
 
-        if(a==b||a==c||b==c){
+        if (a == b || a == c || b == c) {
             alert("Hay al menos dos números iguales");
-        }else{
-           
-            if(a <= b && a <= c){
-                resul2= a;
-            }else if(b <= a && b <= c){
-                resul2= b;
-            }else{
-                resul2= c;
+        } else {
+
+            if (a <= b && a <= c) {
+                resul2 = a;
+            } else if (b <= a && b <= c) {
+                resul2 = b;
+            } else {
+                resul2 = c;
             }
         }
 
 
-        document.getElementById('mostrar-resul10').textContent = " El mayor es "+ resul   // muestra el resultado
-        document.getElementById('mostrar-resul210').textContent = " El menor es "+ resul2   // muestra el resultado  
+        document.getElementById('mostrar-resul10').textContent = " El mayor es " + resul   // muestra el resultado
+        document.getElementById('mostrar-resul210').textContent = " El menor es " + resul2   // muestra el resultado  
     })
     bntCerrarmodal.addEventListener("click", () => {
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 // ejercicio 11
@@ -313,40 +339,40 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
 
         var arr1 = parseInt(document.getElementById('arr1').value); // toma el valor del input
         var arr2 = parseInt(document.getElementById('arr2').value); // toma el valor del input
         var arr3 = parseInt(document.getElementById('arr3').value); // toma el valor del input
         var arr4 = parseInt(document.getElementById('arr4').value); // toma el valor del input
-    
-        let arr = [arr1, arr2,arr3,arr4];
+
+        let arr = [arr1, arr2, arr3, arr4];
 
 
         var len = arr.length;
-        for (var i = 0; i < len-1; i++) {
-            for (var j = 0; j < len-i-1; j++) {
-                if (arr[j] > arr[j+1]) {
-                     //Intercambiar arr[j] y arr[j+1]
+        for (var i = 0; i < len - 1; i++) {
+            for (var j = 0; j < len - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    //Intercambiar arr[j] y arr[j+1]
                     var temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
                 }
             }
         }
 
-        for(i=0;i<4;i++){
-            console.log(arr[i] + " " +i);
+        for (i = 0; i < 4; i++) {
+            console.log(arr[i] + " " + i);
         }
 
-        resul = `el numero más grande es: ${arr[arr.length-1]} y el más bajo es: ${arr[0]}`  //` alt + 96 para sacar la comillita
+        resul = `el numero más grande es: ${arr[arr.length - 1]} y el más bajo es: ${arr[0]}`  //` alt + 96 para sacar la comillita
 
         document.getElementById('mostrar-resul11').textContent = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 // ejercicio 12
@@ -363,9 +389,9 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
 
-        for(i=1;i<=10;i++){
+        for (i = 1; i <= 10; i++) {
             console.log(i);
             contador += i;
         }
@@ -375,9 +401,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('mostrar-resul12').textContent = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 // ejercicio 13
@@ -393,13 +419,13 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
 
-        for(i=1;i<=100;i++){
+        for (i = 1; i <= 100; i++) {
             //console.log(i);
-            
 
-            if((i % 5) == 0){
+
+            if ((i % 5) == 0) {
                 console.log(i);
                 contador += i;
             }
@@ -411,9 +437,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('mostrar-resul13').textContent = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 // ejercicio 14
@@ -429,13 +455,13 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
 
-        for(i=1;i<=100;i++){
+        for (i = 1; i <= 100; i++) {
             //console.log(i);
-            
 
-            if((i % 2) == 0){
+
+            if ((i % 2) == 0) {
                 console.log(i);
                 contador += i;
             }
@@ -447,9 +473,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('mostrar-resul14').textContent = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 // ejercicio 15
@@ -465,12 +491,12 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
 
-        for(i=1;i<=300;i++){
+        for (i = 1; i <= 300; i++) {
             //console.log(i);
-        
-            if((i % 2) == 0){
+
+            if ((i % 2) == 0) {
                 console.log(i);
                 contador += 1;
             }
@@ -483,9 +509,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('mostrar-resul15').textContent = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 // ejercicio 16
@@ -500,21 +526,21 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
 
         var catOpu = parseInt(document.getElementById('catOpu').value); // toma el valor del input
         var catAdy = parseInt(document.getElementById('catAdy').value); // toma el valor del input
 
-       console.log("entro")
-        resul = "La hipotenusa es de: " + Math.sqrt(Math.pow(catOpu,2) + Math.pow(catAdy,2));
-        
+        console.log("entro")
+        resul = "La hipotenusa es de: " + Math.sqrt(Math.pow(catOpu, 2) + Math.pow(catAdy, 2));
+
 
         document.getElementById('mostrar-resul16').textContent = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 // ejercicio 17
@@ -529,20 +555,20 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
 
         var rad = parseInt(document.getElementById('rad').value); // toma el valor del input
         var alt = parseInt(document.getElementById('alt').value); // toma el valor del input
 
-        resul = 2 * Math.PI * rad *(rad + alt)
-      
+        resul = 2 * Math.PI * rad * (rad + alt)
 
-        document.getElementById('mostrar-resul17').textContent = "El área es:"+ resul   // muestra el resultado 
+
+        document.getElementById('mostrar-resul17').textContent = "El área es:" + resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 // ejercicio 18
@@ -557,24 +583,24 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
 
         var numCual = parseInt(document.getElementById('numCual').value); // toma el valor del input
-     
-        if((numCual % 2) == 0){
+
+        if ((numCual % 2) == 0) {
             console.log("par");
             resul = `El número ${numCual} es par`;
-        }else{
+        } else {
             console.log("impar");
             resul = `El número ${numCual} es impar`;
         }
-    
+
         document.getElementById('mostrar-resul18').textContent = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 // ejercicio 19 --PENDIENTE POR TERMINAR 
@@ -590,7 +616,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
 
         let numero = parseInt(document.getElementById('numero').value);
         if (!isNaN(numero)) {
@@ -604,17 +630,17 @@ document.addEventListener("DOMContentLoaded", () => {
             alert('Por favor, ingrese un número válido.');
         }
 
-        for(i=0;i<10;i++){
-            console.log( numeros[i]);
+        for (i = 0; i < 10; i++) {
+            console.log(numeros[i]);
 
         }
-    
+
         document.getElementById('mostrar-resul19').textContent = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
 
 // ejercicio 20
@@ -630,22 +656,22 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.setAttribute("open", "true");
     });
 
-    bntCalcular.addEventListener("click", ()=>{
+    bntCalcular.addEventListener("click", () => {
 
         var nume1 = parseInt(document.getElementById('nume1').value); // toma el valor del input
         var nume2 = parseInt(document.getElementById('nume2').value); // toma el valor del input
 
-        if(nume1 > nume2){       //mayor N1
+        if (nume1 > nume2) {       //mayor N1
             numeros.push(nume2);
             numeros.push(nume1);
-        }else if(nume2 > nume1){ //mayor N2
+        } else if (nume2 > nume1) { //mayor N2
             numeros.push(nume1);
             numeros.push(nume2);
-        } else{                  //iguales
+        } else {                  //iguales
             numeros.push(nume2);
             numeros.push(nume1);
         }
-        
+
         console.log(numeros[0]);
         console.log(numeros[1]);
 
@@ -653,10 +679,10 @@ document.addEventListener("DOMContentLoaded", () => {
         numeros.splice(0, numeros.length);
         document.getElementById('nume1').value = "";
         document.getElementById('nume2').value = "";
-        
+
     })
     bntCerrarmodal.addEventListener("click", () => {
-       modal.removeAttribute("open");
-    
-    });
+        modal.removeAttribute("open");
+
+    });
 });
