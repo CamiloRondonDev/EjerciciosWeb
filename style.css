@@ -76,6 +76,11 @@ button:hover {
 
 span{color: #0d0ddf;}
 
-p{
+.ejercicio{
     text-align:  justify;  
 }
+
+input::placeholder {
+    text-align: center; /* Centra horizontalmente el texto del placeholder */
+    text-align-last: center; /* texto del placeholder esté centrado */
+  }
