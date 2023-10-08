@@ -10,42 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     bntCalcular.addEventListener("click", () => {
-<<<<<<< HEAD
         var lado = parseInt(document.getElementById('lado').value);
-=======
-        // Obtén el valor del campo lado como texto
-        const ladoInput = document.getElementById('lado');
-        const mostrarResultado = document.getElementById('mostrar-resul');
-        const ladoTexto = ladoInput.value;
-
-        // Verifica si el campo lado está vacío
-        if (ladoTexto === "") {
-            alert("Por favor, ingrese un número.");
-            return;
-        }
-
-        // Convierte el texto a un número entero
-        const lado = parseInt(ladoTexto);
-
-        // Verifica si el valor ingresado es un número válido
-        if (isNaN(lado)) {
-            alert("Por favor, ingrese un número válido.");
-            return;
-        }
-
-        // Verifica si el número ingresado es igual a cero
-        if (lado === 0) {
-            alert("La medida del cuadrado no puede ser cero.");
-            return;
-        }
-
-
->>>>>>> Style
         var resultado = lado * lado;
         document.getElementById('mostrar-resul').textContent = resultado
-        ladoInput.value = "";
     })
-
 
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
@@ -68,12 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
     bntCalcular.addEventListener("click", () => {
         var radio = parseInt(document.getElementById('radio').value); // toma el valor del input
         var resultado = Math.PI * Math.pow(radio, 2);
-<<<<<<< HEAD
-        document.getElementById('mostrar-resul2').textContent = resultado.toFixed(2)// muestra el resultado 
-=======
         document.getElementById('mostrar-resul2').textContent = resultado.toFixed(2)// muestra el resultado
         document.getElementById('radio').value = "";
->>>>>>> Style
     })
 
     bntCerrarmodal.addEventListener("click", () => {
@@ -308,8 +272,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 resul = b;
             } else {
                 resul = c;
-<<<<<<< HEAD
-=======
             }
         }
 
@@ -323,7 +285,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 resul2 = b;
             } else {
                 resul2 = c;
->>>>>>> Style
             }
         }
 
@@ -572,10 +533,6 @@ document.addEventListener("DOMContentLoaded", () => {
         var alt = parseInt(document.getElementById('alt').value); // toma el valor del input
 
         resul = 2 * Math.PI * rad * (rad + alt)
-<<<<<<< HEAD
-
-=======
->>>>>>> Style
 
 
         document.getElementById('mostrar-resul17').textContent = "El área es:" + resul   // muestra el resultado 
@@ -700,7 +657,6 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.removeAttribute("open");
 
     });
-<<<<<<< HEAD
 });
 
 // ejercicio 21
@@ -949,6 +905,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-=======
-});
->>>>>>> Style
