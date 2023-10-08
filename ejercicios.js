@@ -905,3 +905,135 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// ejercicio 27
+document.addEventListener("DOMContentLoaded", () => {
+    const bntAbrirmodal = document.querySelector(".bin-abrir-modal27");
+    const bntCerrarmodal = document.querySelector(".bin-cerrar-modal27");
+    const bntCalcular = document.querySelector(".bin-CalArea-modal27");
+    const modal = document.querySelector(".modal27");
+    var resul = "";
+    var calculo;
+
+    bntAbrirmodal.addEventListener("click", () => {
+        modal.setAttribute("open", "true");
+    });
+
+    bntCalcular.addEventListener("click", () => {
+
+        var h_trabajadas = parseFloat(document.getElementById('h_trabajadas').value); // toma el valor del input
+        console.log(h_trabajadas);
+
+        calculo = (h_trabajadas * 30000) * 50;
+        var valorComoMonedaColombiana = calculo.toLocaleString('es-CO', { style: 'currency', currency: 'COP' });//para darle formato de peso colombiano
+        resul = `la nómina total es de: ${valorComoMonedaColombiana}`;
+
+        document.getElementById('mostrar-resul27').textContent = resul   // muestra el resultado 
+    })
+    bntCerrarmodal.addEventListener("click", () => {
+        modal.removeAttribute("open");
+    });
+});
+
+
+// ejercicio 28
+document.addEventListener("DOMContentLoaded", () => {
+    const bntAbrirmodal = document.querySelector(".bin-abrir-modal28");
+    const bntCerrarmodal = document.querySelector(".bin-cerrar-modal28");
+    const bntCalcular = document.querySelector(".bin-CalArea-modal28");
+    const modal = document.querySelector(".modal28");
+    var resul = "";
+    var calculo;
+
+    bntAbrirmodal.addEventListener("click", () => {
+        modal.setAttribute("open", "true");
+    });
+
+    bntCalcular.addEventListener("click", () => {
+
+        var nFactorial = parseFloat(document.getElementById('nFactorial').value); // toma el valor del input
+        console.log(nFactorial);
+
+        function factorial(n) {
+            if (n === 0 || n === 1) {
+                return 1;
+            } else {
+                return n * factorial(n - 1);
+            }
+        }
+        calculo = factorial(nFactorial);
+
+         resul = `El factorial de ${nFactorial} es: ${calculo}`
+
+        document.getElementById('mostrar-resul28').textContent = resul   // muestra el resultado 
+    })
+    bntCerrarmodal.addEventListener("click", () => {
+        modal.removeAttribute("open");
+    });
+});
+
+// ejercicio 29
+document.addEventListener("DOMContentLoaded", () => {
+    const bntAbrirmodal = document.querySelector(".bin-abrir-modal29");
+    const bntCerrarmodal = document.querySelector(".bin-cerrar-modal29");
+    const bntCalcular = document.querySelector(".bin-CalArea-modal29");
+    const modal = document.querySelector(".modal29");
+    var resul = "";
+    var valor = 5;
+    var calculo;
+
+    bntAbrirmodal.addEventListener("click", () => {
+        modal.setAttribute("open", "true");
+    });
+
+    bntCalcular.addEventListener("click", () => {
+
+        for(var i = 0 ; i<11 ; i++){
+
+            resul =  resul +`${i} x ${valor} = ${i*valor} <br> `
+        }
+    
+
+        document.getElementById('mostrar-resul29').innerHTML = resul   // muestra el resultado 
+    })
+    bntCerrarmodal.addEventListener("click", () => {
+        modal.removeAttribute("open");
+    });
+});
+
+// ejercicio 30
+document.addEventListener("DOMContentLoaded", () => {
+    const bntAbrirmodal = document.querySelector(".bin-abrir-modal30");
+    const bntCerrarmodal = document.querySelector(".bin-cerrar-modal30");
+    const bntCalcular = document.querySelector(".bin-CalArea-modal30");
+    const modal = document.querySelector(".modal30");
+    var resul = "";
+
+    bntAbrirmodal.addEventListener("click", () => {
+        modal.setAttribute("open", "true");
+    });
+
+    bntCalcular.addEventListener("click", () => {
+        var nPositivo = parseFloat(document.getElementById('nPositivo').value); // toma el valor del input
+
+        function esPrimo(n) {
+            if (n <= 1) return false;
+            if (n === 2) return true;
+            if (n % 2 === 0) return false;
+        
+            const limite = Math.sqrt(n);
+            for (let i = 3; i <= limite; i += 2) {
+                if (n % i === 0) return false;
+            }
+        
+            return true;
+        }
+
+        Boolean = esPrimo(nPositivo);
+
+
+        document.getElementById('mostrar-resul30').innerHTML = Boolean   // muestra el resultado 
+    })
+    bntCerrarmodal.addEventListener("click", () => {
+        modal.removeAttribute("open");
+    });
+});
