@@ -575,40 +575,54 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// ejercicio 19 --PENDIENTE POR TERMINAR 
+// ejercicio 19 
 document.addEventListener("DOMContentLoaded", () => {
     const bntAbrirmodal = document.querySelector(".bin-abrir-modal19");
     const bntCerrarmodal = document.querySelector(".bin-cerrar-modal19");
-    const bntCalcular = document.querySelector(".bin-CalArea-modal19");
+    const bntCalcular = document.querySelector(".bin-contarNumeros-modal19");
     const modal = document.querySelector(".modal19");
-    var resul = "";
-    let numeros = [];
-
+   
+   
     bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
     });
 
     bntCalcular.addEventListener("click", () => {
+        const input= document.getElementById("numero");
+     const numeros= input.value.split(',').map(Number);
 
-        let numero = parseInt(document.getElementById('numero').value);
-        if (!isNaN(numero)) {
-            if (numeros.length < 10) {
-                numeros.push(numero);
-                console.log(numeros);
-            } else {
-                alert('Ya ha ingresado 10 números.');
+        let numerosentre50y75 = 0;
+        let mayoresde80 = 0;
+        let menoresde30 = 0
+
+        let numeros50y75 = [];
+        let numeros80 = [];
+        let numeros30 = [];
+    
+        for (let i = 0; i < numeros.length; i++) {
+            if (numeros[i] >= 50 && numeros[i] <= 75) {
+                numerosentre50y75++;
+                numeros50y75.push(numeros[i]);
             }
-        } else {
-            alert('Por favor, ingrese un número válido.');
+            if (numeros[i] > 80) {
+                mayoresde80++;
+                numeros80.push(numeros[i]);
+            }
+            if (numeros[i] < 30) {
+                menoresde30++;
+                numeros30.push(numeros[i]);
+            }
         }
 
-        for (i = 0; i < 10; i++) {
-            console.log(numeros[i]);
-
-        }
-
-        document.getElementById('mostrar-resul19').textContent = resul   // muestra el resultado 
-    })
+     var resul = `Números entre 50 y 75 (inclusive):${numerosentre50y75}<br>
+     Números seleccionados: ${numeros50y75.join(', ')}<br>
+     Números mayores de 80:${mayoresde80}<br>
+     Números seleccionados: ${numeros80.join(', ')}<br>
+     Números menores de 30:${menoresde30}<br>
+     Números seleccionados: ${numeros30.join(', ')}`;
+     
+     document.getElementById("mostrar-resul19").innerHTML = resul;
+    });
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
 

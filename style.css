@@ -74,10 +74,12 @@ button:hover {
     color: white;
 }
 
-span{color: #0d0ddf;}
+span{
+    color: #0d0ddf;
+}
 
 .ejercicio{
-    text-align:  justify;  
+    text-align:  justify;
 }
 
 input::placeholder {
