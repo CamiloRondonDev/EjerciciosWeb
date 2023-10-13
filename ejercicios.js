@@ -10,14 +10,35 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     bntCalcular.addEventListener("click", () => {
-        var lado = parseInt(document.getElementById('lado').value);
+        var lado = document.getElementById('lado').value;
+
+        // Verifica si el campo lado está vacío
+        if (lado === "") {
+            alert("Por favor, ingrese un número.");
+            return;
+        }
+
+        // Verifica si el valor ingresado no contiene letras
+        if (/[a-zA-Z]/.test(lado)) {
+            alert("El valor no puede contener letras.");
+            return;
+        }
+
+        // Convierte el valor a un número
+        lado = parseInt(lado);
+
+        // Verifica si el valor ingresado es un número válido
+        if (isNaN(lado)) {
+            alert("Por favor, ingrese un número válido.");
+            return;
+        }
+
         var resultado = lado * lado;
-        document.getElementById('mostrar-resul').textContent = resultado
-    })
+        document.getElementById('mostrar-resul').textContent = resultado;
+    });
 
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
-
     });
 });
 
@@ -320,6 +341,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let arr = [arr1, arr2, arr3, arr4];
 
+        // Validar que los números no sean iguales
+        if (arr1 === arr2 || arr1 === arr3 || arr1 === arr4 || arr2 === arr3 || arr2 === arr4 || arr3 === arr4) {
+            alert("Por favor, asegúrate de que los números ingresados no sean iguales.");
+            return; // Detener la ejecución si los números son iguales
+        }
+
 
         var len = arr.length;
         for (var i = 0; i < len - 1; i++) {
@@ -387,6 +414,8 @@ document.addEventListener("DOMContentLoaded", () => {
     var resul = "";
     var contador = 0;
 
+    let numeroscontador = [];
+
     bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
     });
@@ -395,16 +424,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         for (i = 1; i <= 100; i++) {
             //console.log(i);
-
-
             if ((i % 5) == 0) {
                 console.log(i);
                 contador += i;
+                numeroscontador.push(i);
             }
         }
         console.log(contador);
 
-        resul = `el la suma de los multiplos de 5 es: ${contador} `  //` alt + 96 para sacar la comillita
+        resul = `Los numeros a sumar son: ${numeroscontador} y la suma de los multiplos de 5 es: ${contador} `  //` alt + 96 para sacar la comillita
 
         document.getElementById('mostrar-resul13').textContent = resul   // muestra el resultado 
     })
@@ -422,6 +450,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.querySelector(".modal14");
     var resul = "";
     var contador = 0;
+    let numeroscontador = [];
 
     bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
@@ -436,11 +465,12 @@ document.addEventListener("DOMContentLoaded", () => {
             if ((i % 2) == 0) {
                 console.log(i);
                 contador += i;
+                numeroscontador.push(i);
             }
         }
         console.log(contador);
 
-        resul = `el la suma de los numeros pares es: ${contador} `  //` alt + 96 para sacar la comillita
+        resul = `Los numeros a sumar son: ${numeroscontador} y la suma de los numeros pares es: ${contador} `  //` alt + 96 para sacar la comillita
 
         document.getElementById('mostrar-resul14').textContent = resul   // muestra el resultado 
     })
@@ -581,15 +611,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const bntCerrarmodal = document.querySelector(".bin-cerrar-modal19");
     const bntCalcular = document.querySelector(".bin-contarNumeros-modal19");
     const modal = document.querySelector(".modal19");
-   
-   
+
+
     bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
     });
 
     bntCalcular.addEventListener("click", () => {
-        const input= document.getElementById("numero");
-     const numeros= input.value.split(',').map(Number);
+        const input = document.getElementById("numero");
+        const numeros = input.value.split(',').map(Number);
 
         let numerosentre50y75 = 0;
         let mayoresde80 = 0;
@@ -598,7 +628,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let numeros50y75 = [];
         let numeros80 = [];
         let numeros30 = [];
-    
+
         for (let i = 0; i < numeros.length; i++) {
             if (numeros[i] >= 50 && numeros[i] <= 75) {
                 numerosentre50y75++;
@@ -614,14 +644,14 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-     var resul = `Números entre 50 y 75 (inclusive):${numerosentre50y75}<br>
+        var resul = `Números entre 50 y 75 (inclusive):${numerosentre50y75}<br>
      Números seleccionados: ${numeros50y75.join(', ')}<br>
      Números mayores de 80:${mayoresde80}<br>
      Números seleccionados: ${numeros80.join(', ')}<br>
      Números menores de 30:${menoresde30}<br>
      Números seleccionados: ${numeros30.join(', ')}`;
-     
-     document.getElementById("mostrar-resul19").innerHTML = resul;
+
+        document.getElementById("mostrar-resul19").innerHTML = resul;
     });
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
@@ -976,7 +1006,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         calculo = factorial(nFactorial);
 
-         resul = `El factorial de ${nFactorial} es: ${calculo}`
+        resul = `El factorial de ${nFactorial} es: ${calculo}`
 
         document.getElementById('mostrar-resul28').textContent = resul   // muestra el resultado 
     })
@@ -1001,11 +1031,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bntCalcular.addEventListener("click", () => {
 
-        for(var i = 0 ; i<11 ; i++){
+        for (var i = 0; i < 11; i++) {
 
-            resul =  resul +`${i} x ${valor} = ${i*valor} <br> `
+            resul = resul + `${i} x ${valor} = ${i * valor} <br> `
         }
-    
+
 
         document.getElementById('mostrar-resul29').innerHTML = resul   // muestra el resultado 
     })
@@ -1033,12 +1063,12 @@ document.addEventListener("DOMContentLoaded", () => {
             if (n <= 1) return false;
             if (n === 2) return true;
             if (n % 2 === 0) return false;
-        
+
             const limite = Math.sqrt(n);
             for (let i = 3; i <= limite; i += 2) {
                 if (n % i === 0) return false;
             }
-        
+
             return true;
         }
 

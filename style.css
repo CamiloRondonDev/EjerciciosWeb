@@ -74,8 +74,9 @@ button:hover {
     color: white;
 }
 
-span{
+span {
     color: #0d0ddf;
+    text-align:  justify;
 }
 
 .ejercicio{
