@@ -497,7 +497,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var resul = "";
     var contador = 0;
 
-    let numeroscontador = [];
+    let numeroscontador  = "";
 
     bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
@@ -510,18 +510,20 @@ document.addEventListener("DOMContentLoaded", () => {
             if ((i % 5) == 0) {
                 console.log(i);
                 contador += i;
-                numeroscontador.push(i);
+                numeroscontador = numeroscontador + `${i} <br>`;
             }
         }
         console.log(contador);
 
-        resul = `Los numeros a sumar son: <br> ${numeroscontador} <br> la suma de los multiplos de 5 es: ${contador} `  //` alt + 96 para sacar la comillita
+        resul = `Los números a sumar son: <br> ${numeroscontador} <br> la suma de los multiplos de 5 es: ${contador} `  //` alt + 96 para sacar la comillita
 
         document.getElementById('mostrar-resul13').innerHTML = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
-        document.getElementById('mostrar-resul13').textContent= "";
+        document.getElementById('mostrar-resul13').innerHTML= "";
+        numeroscontador = "";
+        contador = 0;
 
     });
 });
@@ -534,7 +536,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.querySelector(".modal14");
     var resul = "";
     var contador = 0;
-    let numeroscontador = [];
+    let numeroscontador;
 
     bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
@@ -549,7 +551,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if ((i % 2) == 0) {
                 console.log(i);
                 contador += i;
-                numeroscontador.push(i);
+                numeroscontador = numeroscontador + `${i} <br>`;
             }
         }
         console.log(contador);
@@ -560,6 +562,9 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('mostrar-resul14').innerHTML  = "";
+        numeroscontador = "";
+        contador  = 0;
 
     });
 });
@@ -583,7 +588,7 @@ document.addEventListener("DOMContentLoaded", () => {
         for (i = 1; i <= 300; i++) {
             //console.log(i);
 
-            if ((i % 2) == 0) {
+            if (!(i % 2) == 0) {
                 console.log(i);
                 contador += 1;
                 suma += i;
@@ -591,7 +596,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         console.log(contador);
 
-        resul = `existen ${contador} pares y la suma es de ${suma} `  //` alt + 96 para sacar la comillita
+        resul = `existen ${contador} impares y la suma es de ${suma} `  //` alt + 96 para sacar la comillita
         contador = 0;
 
         document.getElementById('mostrar-resul15').textContent = resul   // muestra el resultado 
@@ -650,9 +655,10 @@ document.addEventListener("DOMContentLoaded", () => {
         var alt = parseInt(document.getElementById('alt').value); // toma el valor del input
 
         resul = 2 * Math.PI * rad * (rad + alt)
+        resul2  = Math.PI * Math.pow(rad,2)*alt
 
 
-        document.getElementById('mostrar-resul17').textContent = "El área es:" + resul   // muestra el resultado 
+        document.getElementById('mostrar-resul17').innerHTML = `El área es: ${resul.toFixed(2)} <br> y el Volumen es de: ${resul2.toFixed(2)} `   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
