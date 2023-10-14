@@ -10,35 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     bntCalcular.addEventListener("click", () => {
-        var lado = document.getElementById('lado').value;
-
-        // Verifica si el campo lado está vacío
-        if (lado === "") {
-            alert("Por favor, ingrese un número.");
-            return;
-        }
-
-        // Verifica si el valor ingresado no contiene letras
-        if (/[a-zA-Z]/.test(lado)) {
-            alert("El valor no puede contener letras.");
-            return;
-        }
-
-        // Convierte el valor a un número
-        lado = parseInt(lado);
-
-        // Verifica si el valor ingresado es un número válido
-        if (isNaN(lado)) {
-            alert("Por favor, ingrese un número válido.");
-            return;
-        }
-
+        var lado = parseInt(document.getElementById('lado').value);
         var resultado = lado * lado;
-        document.getElementById('mostrar-resul').textContent = resultado;
-    });
+        document.getElementById('mostrar-resul').textContent = resultado
+    })
 
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+
     });
 });
 
