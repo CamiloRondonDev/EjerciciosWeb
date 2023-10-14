@@ -10,9 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     bntCalcular.addEventListener("click", () => {
-        var lado = parseInt(document.getElementById('lado').value);
+         var lado = parseInt(document.getElementById('lado').value);
+
+        if(!isNaN(lado)){
         var resultado = lado * lado;
         document.getElementById('mostrar-resul').textContent = resultado
+        }else{
+            alert("Ingresa solo datos númericos");
+            document.getElementById('lado').value = "";
+        }
+       
     })
 
     bntCerrarmodal.addEventListener("click", () => {
@@ -35,9 +42,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bntCalcular.addEventListener("click", () => {
         var radio = parseInt(document.getElementById('radio').value); // toma el valor del input
+        if(!isNaN(radio)){
         var resultado = Math.PI * Math.pow(radio, 2);
         document.getElementById('mostrar-resul2').textContent = resultado.toFixed(2)// muestra el resultado
         document.getElementById('radio').value = "";
+        }else{
+            alert("Ingresa solo datos númericos");
+            document.getElementById('radio').value = "";
+        }
+      
     })
 
     bntCerrarmodal.addEventListener("click", () => {
@@ -59,9 +72,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bntCalcular.addEventListener("click", () => {
         var Fahrenheit = parseInt(document.getElementById('Fahrenheit').value); // toma el valor del input
-        var resultado = ((Fahrenheit - 32) * 5) / 9
-        document.getElementById('mostrar-resul3').textContent = resultado.toFixed(2)// muestra el resultado 
-        document.getElementById('Fahrenheit').value = "";
+        if(!isNaN(Fahrenheit)){
+
+            var resultado = ((Fahrenheit - 32) * 5) / 9
+            document.getElementById('mostrar-resul3').textContent = resultado.toFixed(2)// muestra el resultado 
+            document.getElementById('Fahrenheit').value = "";
+        }else{
+            alert("Ingresa solo datos númericos");
+            document.getElementById('Fahrenheit').value = "";
+        }
     })
 
     bntCerrarmodal.addEventListener("click", () => {
@@ -82,12 +101,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     bntCalcular.addEventListener("click", () => {
+
         var num_1 = parseInt(document.getElementById('num1').value); // toma el valor del input
         var num_2 = parseInt(document.getElementById('num2').value); // toma el valor del input
-        var suma = num_1 + num_2;
-        var resta = num_1 - num_2;
-        var restul = "la sumas de los números es " + suma + " la resta es: " + resta
-        document.getElementById('mostrar-resul4').textContent = restul   // muestra el resultado 
+
+        if(!isNaN(num_1) && !isNaN(num_2)){
+
+            var suma = num_1 + num_2;
+            var resta = num_1 - num_2;
+            var restul = "la sumas de los números es " + suma + " la resta es: " + resta
+            document.getElementById('mostrar-resul4').textContent = restul   // muestra el resultado 
+        }else{
+            alert("Ingresa solo datos númericos y sin espacios");
+            document.getElementById('num1').value = "";
+            document.getElementById('num2').value = "";
+        }
+
     })
 
     bntCerrarmodal.addEventListener("click", () => {
@@ -111,8 +140,16 @@ document.addEventListener("DOMContentLoaded", () => {
         var num_1 = parseInt(document.getElementById('num3').value); // toma el valor del input
         var num_2 = parseInt(document.getElementById('num4').value); // toma el valor del input
 
-        var restul = "El número más grande es : " + Math.max(num_1, num_2)
-        document.getElementById('mostrar-resul5').textContent = restul   // muestra el resultado 
+        if(!isNaN(num_2) && !isNaN(num_1)){
+
+            var restul = "El número más grande es : " + Math.max(num_1, num_2)
+            document.getElementById('mostrar-resul5').textContent = restul   // muestra el resultado 
+        }else{
+            alert("Ingresa solo datos númericos y sin espacios");
+            document.getElementById('num3').value = "";
+            document.getElementById('num4').value = "";
+        }
+
     })
 
     bntCerrarmodal.addEventListener("click", () => {
@@ -136,8 +173,14 @@ document.addEventListener("DOMContentLoaded", () => {
         var base = parseInt(document.getElementById('base').value); // toma el valor del input
         var altura = parseInt(document.getElementById('altura').value); // toma el valor del input
 
+        if(!isNaN(base) && !isNaN(altura)){
         var restul = base * altura / 2
         document.getElementById('mostrar-resul6').textContent = restul   // muestra el resultado 
+        }else{
+            alert("Ingresa solo datos númericos y sin espacios");
+            document.getElementById('base').value = "";
+            document.getElementById('altura').value = "";
+        }
     })
 
     bntCerrarmodal.addEventListener("click", () => {
@@ -164,6 +207,8 @@ document.addEventListener("DOMContentLoaded", () => {
         var n2 = parseInt(document.getElementById('N2').value); // toma el valor del input
         var n3 = parseInt(document.getElementById('N3').value); // toma el valor del input
 
+        if(!isNaN(n1) && !isNaN(n2) && !isNaN(n3)){
+
         var restul = ""
 
         if (n1 >= n2 && n1 >= n3) {
@@ -173,8 +218,13 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             restul = n3;
         }
-
         document.getElementById('mostrar-resul7').textContent = restul   // muestra el resultado 
+        }else{
+            alert("Ingresa solo datos númericos y sin espacios");
+            document.getElementById('N1').value = "";
+            document.getElementById('N2').value = "";
+            document.getElementById('N3').value = "";
+        }
     })
 
     bntCerrarmodal.addEventListener("click", () => {
@@ -229,14 +279,31 @@ document.addEventListener("DOMContentLoaded", () => {
         var num1 = parseInt(document.getElementById('dato1').value); // toma el valor del input
         var num2 = parseInt(document.getElementById('dato2').value); // toma el valor del input
 
-        if (num1 > num2) {
-            resul = "el numero mas grande es el: " + num1;
-            console.log("entro1")
-        } else {
-            resul = "el numero mas grande es el: " + num2;
-            console.log("entro2")
+        if(!isNaN(num1) && !isNaN(num2)){
+
+            if(!(num1 === num2)){
+
+                if (num1 > num2) {
+                    resul = "el numero mas grande es el: " + num1  + " y el menor es: " + num2;
+                    console.log("entro1")
+                } else {
+                    resul = "el numero más grande es el: " + num2 + " y el menor es: " + num1; 
+                    console.log("entro2")
+                }
+                document.getElementById('mostrar-resul9').textContent = resul   // muestra el resultado 
+            }else{
+                alert("Ingresa números diferentes");
+                document.getElementById('dato1').value = "";
+                document.getElementById('dato2').value = "";
+
+            }
+        }else{
+            alert("Ingresa solo datos númericos y sin espacios");
+            document.getElementById('dato1').value = "";
+            document.getElementById('dato2').value = "";
         }
-        document.getElementById('mostrar-resul9').textContent = resul   // muestra el resultado 
+
+ 
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
@@ -262,35 +329,46 @@ document.addEventListener("DOMContentLoaded", () => {
         var b = parseInt(document.getElementById('b').value); // toma el valor del input
         var c = parseInt(document.getElementById('c').value); // toma el valor del input
 
-        if (a == b || a == c || b == c) {
-            alert("Hay al menos dos números iguales");
-        } else {
+        if (!isNaN(a) && !isNaN(b) && !isNaN(c)) {
 
-            if (a >= b && a >= c) {
-                resul = a;
-            } else if (b >= a && b >= c) {
-                resul = b;
+            if (a == b || a == c || b == c) {
+                alert("Hay al menos dos números iguales");
             } else {
-                resul = c;
+
+                if (a >= b && a >= c) {
+                    resul = a;
+                } else if (b >= a && b >= c) {
+                    resul = b;
+                } else {
+                    resul = c;
+                }
             }
+
+            if (a == b || a == c || b == c) {
+                //      alert("Hay al menos dos números iguales");
+            } else {
+
+                if (a <= b && a <= c) {
+                    resul2 = a;
+                } else if (b <= a && b <= c) {
+                    resul2 = b;
+                } else {
+                    resul2 = c;
+                }
+                document.getElementById('mostrar-resul10').textContent = " El mayor es " + resul   // muestra el resultado
+                document.getElementById('mostrar-resul210').textContent = " El menor es " + resul2   // muestra el resultado  
+            }
+
+        }else{
+            alert("solo datos númericos y/o no pueden haber espacios en blanco");
+            document.getElementById('a').value = "";
+            document.getElementById('b').value = "";
+            document.getElementById('c').value = "";
         }
 
-        if (a == b || a == c || b == c) {
-            alert("Hay al menos dos números iguales");
-        } else {
-
-            if (a <= b && a <= c) {
-                resul2 = a;
-            } else if (b <= a && b <= c) {
-                resul2 = b;
-            } else {
-                resul2 = c;
-            }
-        }
 
 
-        document.getElementById('mostrar-resul10').textContent = " El mayor es " + resul   // muestra el resultado
-        document.getElementById('mostrar-resul210').textContent = " El menor es " + resul2   // muestra el resultado  
+
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
@@ -318,34 +396,32 @@ document.addEventListener("DOMContentLoaded", () => {
         var arr3 = parseInt(document.getElementById('arr3').value); // toma el valor del input
         var arr4 = parseInt(document.getElementById('arr4').value); // toma el valor del input
 
-        let arr = [arr1, arr2, arr3, arr4];
-
-        // Validar que los números no sean iguales
-        if (arr1 === arr2 || arr1 === arr3 || arr1 === arr4 || arr2 === arr3 || arr2 === arr4 || arr3 === arr4) {
-            alert("Por favor, asegúrate de que los números ingresados no sean iguales.");
-            return; // Detener la ejecución si los números son iguales
-        }
+        if (!isNaN(arr1) && !isNaN(arr2) && !isNaN(arr3) && !isNaN(arr4)) {
 
 
-        var len = arr.length;
-        for (var i = 0; i < len - 1; i++) {
-            for (var j = 0; j < len - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    //Intercambiar arr[j] y arr[j+1]
-                    var temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+            let arr = [arr1, arr2, arr3, arr4];
+            var len = arr.length;
+
+            for (var i = 0; i < len - 1; i++) {
+                for (var j = 0; j < len - i - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        var temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
                 }
             }
+
+            for (i = 0; i < 4; i++) {
+                console.log(arr[i] + " " + i);
+            }
+
+            resul = `el numero más grande es: ${arr[arr.length - 1]} y el más bajo es: ${arr[0]}`  //` alt + 96 para sacar la comillita
+
+            document.getElementById('mostrar-resul11').textContent = resul   // muestra el resultado 
+        } else {
+            alert("solo datos númericos y/o no pueden haber espacios en blanco");
         }
-
-        for (i = 0; i < 4; i++) {
-            console.log(arr[i] + " " + i);
-        }
-
-        resul = `el numero más grande es: ${arr[arr.length - 1]} y el más bajo es: ${arr[0]}`  //` alt + 96 para sacar la comillita
-
-        document.getElementById('mostrar-resul11').textContent = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
