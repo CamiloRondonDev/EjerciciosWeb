@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('lado').value = "";
 
     });
 });
@@ -121,6 +122,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('num1').value = "";
+        document.getElementById('num2').value = "";
+        document.getElementById('mostrar-resul4').textContent = "";
 
     });
 });
@@ -154,6 +158,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('num3').value = "";
+        document.getElementById('num4').value = "";
+        document.getElementById('mostrar-resul5').textContent = "";
 
     });
 });
@@ -186,6 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
     bntCerrarmodal.addEventListener("click", () => {
         document.getElementById('altura').value = ""
         document.getElementById('base').value = ""
+        document.getElementById('mostrar-resul6').textContent = "";
         modal.removeAttribute("open");
 
     });
@@ -211,6 +219,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         var restul = ""
 
+        if(n1 == n2 || n1 == n3 || n3 == n2){
+            alert("no pueden haber números repetidos");
+            return;
+
+        }
+        
         if (n1 >= n2 && n1 >= n3) {
             restul = n1;
         } else if (n2 >= n1 && n2 >= n3) {
@@ -229,6 +243,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('N1').value = "";
+        document.getElementById('N2').value = "";
+        document.getElementById('N3').value = "";
+        document.getElementById('mostrar-resul7').textContent = "";
 
     });
 });
@@ -284,10 +302,10 @@ document.addEventListener("DOMContentLoaded", () => {
             if(!(num1 === num2)){
 
                 if (num1 > num2) {
-                    resul = "el numero mas grande es el: " + num1  + " y el menor es: " + num2;
+                    resul = "el número mas grande es el: " + num1  + " y el menor es: " + num2;
                     console.log("entro1")
                 } else {
-                    resul = "el numero más grande es el: " + num2 + " y el menor es: " + num1; 
+                    resul = "el número más grande es el: " + num2 + " y el menor es: " + num1; 
                     console.log("entro2")
                 }
                 document.getElementById('mostrar-resul9').textContent = resul   // muestra el resultado 
@@ -295,18 +313,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Ingresa números diferentes");
                 document.getElementById('dato1').value = "";
                 document.getElementById('dato2').value = "";
+                document.getElementById('mostrar-resul9').textContent = "";
 
             }
         }else{
             alert("Ingresa solo datos númericos y sin espacios");
             document.getElementById('dato1').value = "";
             document.getElementById('dato2').value = "";
+            document.getElementById('mostrar-resul9').textContent = "";
         }
 
  
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('dato1').value = "";
+        document.getElementById('dato2').value = "";
+        document.getElementById('mostrar-resul9').textContent = "";
 
     });
 });
@@ -416,7 +439,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(arr[i] + " " + i);
             }
 
-            resul = `el numero más grande es: ${arr[arr.length - 1]} y el más bajo es: ${arr[0]}`  //` alt + 96 para sacar la comillita
+            resul = `el número más grande es: ${arr[arr.length - 1]} y el más bajo es: ${arr[0]}`  //` alt + 96 para sacar la comillita
 
             document.getElementById('mostrar-resul11').textContent = resul   // muestra el resultado 
         } else {
@@ -493,6 +516,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('mostrar-resul13').textContent= "";
 
     });
 });
@@ -543,6 +567,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.querySelector(".modal15");
     var resul = "";
     var contador = 0;
+    var suma = 0;
 
     bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
@@ -556,17 +581,19 @@ document.addEventListener("DOMContentLoaded", () => {
             if ((i % 2) == 0) {
                 console.log(i);
                 contador += 1;
+                suma += i;
             }
         }
         console.log(contador);
 
-        resul = `existen ${contador} pares `  //` alt + 96 para sacar la comillita
+        resul = `existen ${contador} pares y la suma es de ${suma} `  //` alt + 96 para sacar la comillita
         contador = 0;
 
         document.getElementById('mostrar-resul15').textContent = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('mostrar-resul15').textContent = "";
 
     });
 });
