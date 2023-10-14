@@ -616,6 +616,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const bntCalcular = document.querySelector(".bin-CalArea-modal16");
     const modal = document.querySelector(".modal16");
     var resul = "";
+    var hipo = 0;
 
     bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
@@ -626,14 +627,21 @@ document.addEventListener("DOMContentLoaded", () => {
         var catOpu = parseInt(document.getElementById('catOpu').value); // toma el valor del input
         var catAdy = parseInt(document.getElementById('catAdy').value); // toma el valor del input
 
-        console.log("entro")
-        resul = "La hipotenusa es de: " + Math.sqrt(Math.pow(catOpu, 2) + Math.pow(catAdy, 2));
-
-
-        document.getElementById('mostrar-resul16').textContent = resul   // muestra el resultado 
+        if(!isNaN(catOpu)  && !isNaN(catAdy)){
+            console.log("entro")
+            hipo =  Math.sqrt(Math.pow(catOpu, 2) + Math.pow(catAdy, 2));
+            resul = `La hipotenusa es de: ${hipo.toFixed(2)} ` 
+            document.getElementById('mostrar-resul16').textContent = resul   // muestra el resultado 
+        }else{
+            alert("solo datos númericos y/o no pueden haber espacios en blanco");
+        }
+  
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('catAdy').value = "";
+        document.getElementById('catOpu').value = "";
+        document.getElementById('mostrar-resul16').textContent = "";
 
     });
 });
@@ -655,14 +663,26 @@ document.addEventListener("DOMContentLoaded", () => {
         var rad = parseInt(document.getElementById('rad').value); // toma el valor del input
         var alt = parseInt(document.getElementById('alt').value); // toma el valor del input
 
+        if(!isNaN(alt) && !isNaN(rad)){
+            
         resul = 2 * Math.PI * rad * (rad + alt)
         resul2  = Math.PI * Math.pow(rad,2)*alt
-
-
         document.getElementById('mostrar-resul17').innerHTML = `El área es: ${resul.toFixed(2)} <br> y el Volumen es de: ${resul2.toFixed(2)} `   // muestra el resultado 
+
+        }else{
+            alert("solo datos númericos y/o no pueden haber espacios en blanco");
+            document.getElementById('alt').value = "";
+            document.getElementById('rad').value = "";
+            document.getElementById('mostrar-resul17').innerHTML = "";
+
+        }
+
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('alt').value = "";
+        document.getElementById('rad').value = "";
+        document.getElementById('mostrar-resul17').innerHTML = "";
 
     });
 });
@@ -683,18 +703,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
         var numCual = parseInt(document.getElementById('numCual').value); // toma el valor del input
 
-        if ((numCual % 2) == 0) {
-            console.log("par");
-            resul = `El número ${numCual} es par`;
-        } else {
-            console.log("impar");
-            resul = `El número ${numCual} es impar`;
+        if(!isNaN(numCual)){
+
+            if ((numCual % 2) == 0) {
+                console.log("par");
+                resul = `El número ${numCual} es par`;
+            } else {
+                console.log("impar");
+                resul = `El número ${numCual} es impar`;
+            }
+        }else{
+            document.getElementById('numCual').value = "";
+            document.getElementById('mostrar-resul18').textContent = "";
+            alert("solo datos númericos y/o no pueden haber espacios en blanco");
         }
 
         document.getElementById('mostrar-resul18').textContent = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('numCual').value = "";
+        document.getElementById('mostrar-resul18').textContent = "";
 
     });
 });
@@ -707,6 +736,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.querySelector(".modal19");
 
 
+
     bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
     });
@@ -714,41 +744,57 @@ document.addEventListener("DOMContentLoaded", () => {
     bntCalcular.addEventListener("click", () => {
         const input = document.getElementById("numero");
         const numeros = input.value.split(',').map(Number);
-
         let numerosentre50y75 = 0;
         let mayoresde80 = 0;
-        let menoresde30 = 0
-
+        let menoresde30 = 0;
+    
         let numeros50y75 = [];
         let numeros80 = [];
         let numeros30 = [];
 
-        for (let i = 0; i < numeros.length; i++) {
-            if (numeros[i] >= 50 && numeros[i] <= 75) {
-                numerosentre50y75++;
-                numeros50y75.push(numeros[i]);
-            }
-            if (numeros[i] > 80) {
-                mayoresde80++;
-                numeros80.push(numeros[i]);
-            }
-            if (numeros[i] < 30) {
-                menoresde30++;
-                numeros30.push(numeros[i]);
-            }
+
+        if(numeros.length < 10 || numeros.length > 10 ){
+            alert("La cantidad de números debe ser de 10");
+            return;
+
         }
 
-        var resul = `Números entre 50 y 75 (inclusive):${numerosentre50y75}<br>
-     Números seleccionados: ${numeros50y75.join(', ')}<br>
-     Números mayores de 80:${mayoresde80}<br>
-     Números seleccionados: ${numeros80.join(', ')}<br>
-     Números menores de 30:${menoresde30}<br>
-     Números seleccionados: ${numeros30.join(', ')}`;
+       // if (!isNaN(input)) {
+            for (let i = 0; i < numeros.length; i++) {
+                if (numeros[i] >= 50 && numeros[i] <= 75) {
+                    numerosentre50y75++;
+                    numeros50y75.push(numeros[i]);
+                }
+                if (numeros[i] > 80) {
+                    mayoresde80++;
+                    numeros80.push(numeros[i]);
+                }
+                if (numeros[i] < 30) {
+                    menoresde30++;
+                    numeros30.push(numeros[i]);
+                }
+            }
 
+            var resul = `Números entre 50 y 75 (inclusive):${numerosentre50y75}<br>
+         Números seleccionados: ${numeros50y75.join(', ')}<br>
+         Números mayores de 80:${mayoresde80}<br>
+         Números seleccionados: ${numeros80.join(', ')}<br>
+         Números menores de 30:${menoresde30}<br>
+         Números seleccionados: ${numeros30.join(', ')}`;
         document.getElementById("mostrar-resul19").innerHTML = resul;
+      //  }else{
+        //    alert("Error con los datos por favor verificar");
+        //}
     });
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById("mostrar-resul19").innerHTML = "";
+        document.getElementById("numero").value = "";
+         mayoresde80 = 0;
+         menoresde30 = 0;
+         numeros50y75 = [];
+         numeros80 = [];
+         numeros30 = [];
 
     });
 });
@@ -771,28 +817,45 @@ document.addEventListener("DOMContentLoaded", () => {
         var nume1 = parseInt(document.getElementById('nume1').value); // toma el valor del input
         var nume2 = parseInt(document.getElementById('nume2').value); // toma el valor del input
 
-        if (nume1 > nume2) {       //mayor N1
-            numeros.push(nume2);
-            numeros.push(nume1);
-        } else if (nume2 > nume1) { //mayor N2
-            numeros.push(nume1);
-            numeros.push(nume2);
-        } else {                  //iguales
-            numeros.push(nume2);
-            numeros.push(nume1);
+        if(nume2 == nume1 ){
+            alert("Los números no pueden ser iguales");
+            document.getElementById('nume2').value = "";
+            return;
+
         }
 
-        console.log(numeros[0]);
-        console.log(numeros[1]);
+        if(!isNaN(nume1) && !isNaN(nume2)){
+            if (nume1 > nume2) {       //mayor N1
+                numeros.push(nume2);
+                numeros.push(nume1);
+            } else if (nume2 > nume1) { //mayor N2
+                numeros.push(nume1);
+                numeros.push(nume2);
+            } else {                  //iguales
+                numeros.push(nume2);
+                numeros.push(nume1);
+            }
+    
+            console.log(numeros[0]);
+            console.log(numeros[1]);
+    
+            document.getElementById('mostrar-resul20').textContent = numeros   // muestra el resultado 
+            numeros.splice(0, numeros.length);
+        }else{
+            alert("solo datos númericos y/o no pueden haber espacios en blanco");
+        }
 
-        document.getElementById('mostrar-resul20').textContent = numeros   // muestra el resultado 
-        numeros.splice(0, numeros.length);
-        document.getElementById('nume1').value = "";
-        document.getElementById('nume2').value = "";
+
+        
+        //document.getElementById('nume1').value = "";
+       // document.getElementById('nume2').value = "";
 
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('nume1').value = "";
+        document.getElementById('nume2').value = "";
+        document.getElementById('mostrar-resul20').textContent = "";
 
     });
 });
