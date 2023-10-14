@@ -604,6 +604,7 @@ document.addEventListener("DOMContentLoaded", () => {
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
         document.getElementById('mostrar-resul15').textContent = "";
+        suma = 0;
 
     });
 });
