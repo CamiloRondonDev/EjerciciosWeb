@@ -510,7 +510,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if ((i % 5) == 0) {
                 console.log(i);
                 contador += i;
-                numeroscontador = numeroscontador + `${i} <br>`;
+                numeroscontador = numeroscontador + `${i}-`;
             }
         }
         console.log(contador);
@@ -536,7 +536,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.querySelector(".modal14");
     var resul = "";
     var contador = 0;
-    let numeroscontador;
+    let numeroscontador = 0;
 
     bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
@@ -551,7 +551,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if ((i % 2) == 0) {
                 console.log(i);
                 contador += i;
-                numeroscontador = numeroscontador + `${i} <br>`;
+                numeroscontador = numeroscontador + `-${i}`;
             }
         }
         console.log(contador);
