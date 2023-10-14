@@ -10,16 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     bntCalcular.addEventListener("click", () => {
-         var lado = parseInt(document.getElementById('lado').value);
+        var lado = parseInt(document.getElementById('lado').value);
 
-        if(!isNaN(lado)){
-        var resultado = lado * lado;
-        document.getElementById('mostrar-resul').textContent = resultado
-        }else{
+        if (!isNaN(lado)) {
+            var resultado = lado * lado;
+            document.getElementById('mostrar-resul').textContent = resultado
+        } else {
             alert("Ingresa solo datos númericos");
             document.getElementById('lado').value = "";
         }
-       
+
     })
 
     bntCerrarmodal.addEventListener("click", () => {
@@ -43,15 +43,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bntCalcular.addEventListener("click", () => {
         var radio = parseInt(document.getElementById('radio').value); // toma el valor del input
-        if(!isNaN(radio)){
-        var resultado = Math.PI * Math.pow(radio, 2);
-        document.getElementById('mostrar-resul2').textContent = resultado.toFixed(2)// muestra el resultado
-        document.getElementById('radio').value = "";
-        }else{
+        if (!isNaN(radio)) {
+            var resultado = Math.PI * Math.pow(radio, 2);
+            document.getElementById('mostrar-resul2').textContent = resultado.toFixed(2)// muestra el resultado
+            document.getElementById('radio').value = "";
+        } else {
             alert("Ingresa solo datos númericos");
             document.getElementById('radio').value = "";
         }
-      
+
     })
 
     bntCerrarmodal.addEventListener("click", () => {
@@ -73,12 +73,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bntCalcular.addEventListener("click", () => {
         var Fahrenheit = parseInt(document.getElementById('Fahrenheit').value); // toma el valor del input
-        if(!isNaN(Fahrenheit)){
+        if (!isNaN(Fahrenheit)) {
 
             var resultado = ((Fahrenheit - 32) * 5) / 9
             document.getElementById('mostrar-resul3').textContent = resultado.toFixed(2)// muestra el resultado 
             document.getElementById('Fahrenheit').value = "";
-        }else{
+        } else {
             alert("Ingresa solo datos númericos");
             document.getElementById('Fahrenheit').value = "";
         }
@@ -106,13 +106,13 @@ document.addEventListener("DOMContentLoaded", () => {
         var num_1 = parseInt(document.getElementById('num1').value); // toma el valor del input
         var num_2 = parseInt(document.getElementById('num2').value); // toma el valor del input
 
-        if(!isNaN(num_1) && !isNaN(num_2)){
+        if (!isNaN(num_1) && !isNaN(num_2)) {
 
             var suma = num_1 + num_2;
             var resta = num_1 - num_2;
             var restul = "la sumas de los números es " + suma + " la resta es: " + resta
             document.getElementById('mostrar-resul4').textContent = restul   // muestra el resultado 
-        }else{
+        } else {
             alert("Ingresa solo datos númericos y sin espacios");
             document.getElementById('num1').value = "";
             document.getElementById('num2').value = "";
@@ -144,11 +144,11 @@ document.addEventListener("DOMContentLoaded", () => {
         var num_1 = parseInt(document.getElementById('num3').value); // toma el valor del input
         var num_2 = parseInt(document.getElementById('num4').value); // toma el valor del input
 
-        if(!isNaN(num_2) && !isNaN(num_1)){
+        if (!isNaN(num_2) && !isNaN(num_1)) {
 
             var restul = "El número más grande es : " + Math.max(num_1, num_2)
             document.getElementById('mostrar-resul5').textContent = restul   // muestra el resultado 
-        }else{
+        } else {
             alert("Ingresa solo datos númericos y sin espacios");
             document.getElementById('num3').value = "";
             document.getElementById('num4').value = "";
@@ -180,10 +180,10 @@ document.addEventListener("DOMContentLoaded", () => {
         var base = parseInt(document.getElementById('base').value); // toma el valor del input
         var altura = parseInt(document.getElementById('altura').value); // toma el valor del input
 
-        if(!isNaN(base) && !isNaN(altura)){
-        var restul = base * altura / 2
-        document.getElementById('mostrar-resul6').textContent = restul   // muestra el resultado 
-        }else{
+        if (!isNaN(base) && !isNaN(altura)) {
+            var restul = base * altura / 2
+            document.getElementById('mostrar-resul6').textContent = restul   // muestra el resultado 
+        } else {
             alert("Ingresa solo datos númericos y sin espacios");
             document.getElementById('base').value = "";
             document.getElementById('altura').value = "";
@@ -215,25 +215,25 @@ document.addEventListener("DOMContentLoaded", () => {
         var n2 = parseInt(document.getElementById('N2').value); // toma el valor del input
         var n3 = parseInt(document.getElementById('N3').value); // toma el valor del input
 
-        if(!isNaN(n1) && !isNaN(n2) && !isNaN(n3)){
+        if (!isNaN(n1) && !isNaN(n2) && !isNaN(n3)) {
 
-        var restul = ""
+            var restul = ""
 
-        if(n1 == n2 || n1 == n3 || n3 == n2){
-            alert("no pueden haber números repetidos");
-            return;
+            if (n1 == n2 || n1 == n3 || n3 == n2) {
+                alert("no pueden haber números repetidos");
+                return;
 
-        }
-        
-        if (n1 >= n2 && n1 >= n3) {
-            restul = n1;
-        } else if (n2 >= n1 && n2 >= n3) {
-            restul = n2;
+            }
+
+            if (n1 >= n2 && n1 >= n3) {
+                restul = n1;
+            } else if (n2 >= n1 && n2 >= n3) {
+                restul = n2;
+            } else {
+                restul = n3;
+            }
+            document.getElementById('mostrar-resul7').textContent = restul   // muestra el resultado 
         } else {
-            restul = n3;
-        }
-        document.getElementById('mostrar-resul7').textContent = restul   // muestra el resultado 
-        }else{
             alert("Ingresa solo datos númericos y sin espacios");
             document.getElementById('N1').value = "";
             document.getElementById('N2').value = "";
@@ -297,33 +297,33 @@ document.addEventListener("DOMContentLoaded", () => {
         var num1 = parseInt(document.getElementById('dato1').value); // toma el valor del input
         var num2 = parseInt(document.getElementById('dato2').value); // toma el valor del input
 
-        if(!isNaN(num1) && !isNaN(num2)){
+        if (!isNaN(num1) && !isNaN(num2)) {
 
-            if(!(num1 === num2)){
+            if (!(num1 === num2)) {
 
                 if (num1 > num2) {
-                    resul = "el número mas grande es el: " + num1  + " y el menor es: " + num2;
+                    resul = "el número mas grande es el: " + num1 + " y el menor es: " + num2;
                     console.log("entro1")
                 } else {
-                    resul = "el número más grande es el: " + num2 + " y el menor es: " + num1; 
+                    resul = "el número más grande es el: " + num2 + " y el menor es: " + num1;
                     console.log("entro2")
                 }
                 document.getElementById('mostrar-resul9').textContent = resul   // muestra el resultado 
-            }else{
+            } else {
                 alert("Ingresa números diferentes");
                 document.getElementById('dato1').value = "";
                 document.getElementById('dato2').value = "";
                 document.getElementById('mostrar-resul9').textContent = "";
 
             }
-        }else{
+        } else {
             alert("Ingresa solo datos númericos y sin espacios");
             document.getElementById('dato1').value = "";
             document.getElementById('dato2').value = "";
             document.getElementById('mostrar-resul9').textContent = "";
         }
 
- 
+
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
@@ -382,7 +382,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById('mostrar-resul210').textContent = " El menor es " + resul2   // muestra el resultado  
             }
 
-        }else{
+        } else {
             alert("solo datos númericos y/o no pueden haber espacios en blanco");
             document.getElementById('a').value = "";
             document.getElementById('b').value = "";
@@ -497,7 +497,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var resul = "";
     var contador = 0;
 
-    let numeroscontador  = "";
+    let numeroscontador = "";
 
     bntAbrirmodal.addEventListener("click", () => {
         modal.setAttribute("open", "true");
@@ -505,12 +505,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bntCalcular.addEventListener("click", () => {
 
-        for (i = 1; i <= 100; i++) {
-            //console.log(i);
-            if ((i % 5) == 0) {
-                console.log(i);
-                contador += i;
-                numeroscontador = numeroscontador + `${i}-`;
+        if (contador === 0) {
+            for (i = 1; i <= 100; i++) {
+                //console.log(i);
+                if ((i % 5) == 0) {
+                    console.log(i);
+                    contador += i;
+                    numeroscontador = numeroscontador + `${i}-`;
+                }
             }
         }
         console.log(contador);
@@ -521,7 +523,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
-        document.getElementById('mostrar-resul13').innerHTML= "";
+        document.getElementById('mostrar-resul13').innerHTML = "";
         numeroscontador = "";
         contador = 0;
 
@@ -544,14 +546,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bntCalcular.addEventListener("click", () => {
 
-        for (i = 1; i <= 100; i++) {
-            //console.log(i);
+        if (contador === 0) {
+            for (i = 1; i <= 100; i++) {
+                //console.log(i);
+                if ((i % 2) == 0) {
+                    console.log(i);
+                    contador += i;
+                    numeroscontador = numeroscontador + `-${i}`;
 
+                }
 
-            if ((i % 2) == 0) {
-                console.log(i);
-                contador += i;
-                numeroscontador = numeroscontador + `-${i}`;
             }
         }
         console.log(contador);
@@ -562,9 +566,9 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
-        document.getElementById('mostrar-resul14').innerHTML  = "";
+        document.getElementById('mostrar-resul14').innerHTML = "";
         numeroscontador = "";
-        contador  = 0;
+        contador = 0;
 
     });
 });
@@ -656,7 +660,7 @@ document.addEventListener("DOMContentLoaded", () => {
         var alt = parseInt(document.getElementById('alt').value); // toma el valor del input
 
         resul = 2 * Math.PI * rad * (rad + alt)
-        resul2  = Math.PI * Math.pow(rad,2)*alt
+        resul2 = Math.PI * Math.pow(rad, 2) * alt
 
 
         document.getElementById('mostrar-resul17').innerHTML = `El área es: ${resul.toFixed(2)} <br> y el Volumen es de: ${resul2.toFixed(2)} `   // muestra el resultado 
