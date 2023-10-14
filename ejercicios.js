@@ -885,6 +885,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('mostrar-resul21').textContent = "";
     });
 });
 
@@ -932,20 +933,28 @@ document.addEventListener("DOMContentLoaded", () => {
     bntCalcular.addEventListener("click", () => {
 
         var horas = parseInt(document.getElementById('horas').value); // toma el valor del input
-        console.log(horas);
 
-        if (horas == 1) {
-            resul = horas * priHora;
-        } else {
-            var calculo = (horas - 1) * otrHoras + priHora;
-            resul = `por ${horas} horas el total a pagar es de:  ${calculo}`
+        if(!isNaN(horas)){
+
+            console.log(horas);
+
+            if (horas == 1) {
+                resul = horas * priHora;
+            } else {
+                var calculo = (horas - 1) * otrHoras + priHora;
+                var CalColombiano = calculo.toLocaleString('es-CO', { style: 'currency', currency: 'COP' });//para darle formato de peso colombiano
+                resul = `por ${horas} horas el total a pagar es de:  ${CalColombiano}`
+            }
+    
+            document.getElementById('mostrar-resul23').textContent = resul   // muestra el resultado 
+        }else{
+            alert("Solo valores númericos");
         }
-
-
-        document.getElementById('mostrar-resul23').textContent = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('mostrar-resul23').textContent = "";
+        document.getElementById('horas').value = "";
     });
 });
 
@@ -966,38 +975,48 @@ document.addEventListener("DOMContentLoaded", () => {
     bntCalcular.addEventListener("click", () => {
 
         var entradas = parseInt(document.getElementById('entradas').value); // toma el valor del input
-        console.log(horas);
 
-        if (entradas > 4) {
-            alert("solo se pueden hasta 4 entradas");
-            document.getElementById('entradas').value = "";
-        } else {
-            switch (entradas) {
-                case 1:
-                    calculo = entradas * valorEntrada;
-                    resul = `El valor de la entrada es de ${calculo}`;
-                    break;
-                case 2:
-                    calculo = (entradas * valorEntrada) - (entradas * valorEntrada) * 0.10;
-                    resul = `El valor de la entrada es de ${calculo}`;
-                    break;
-                case 3:
-                    calculo = (entradas * valorEntrada) - (entradas * valorEntrada) * 0.15;
-                    resul = `El valor de la entrada es de ${calculo}`;
-                    break;
-                case 4:
-                    calculo = (entradas * valorEntrada) - (entradas * valorEntrada) * 0.20;
-                    resul = `El valor de la entrada es de ${calculo}`;
-                    break;
+        if (!isNaN(entradas)) {
+
+
+            if (entradas > 4) {
+                alert("solo se pueden hasta 4 entradas");
+                document.getElementById('entradas').value = "";
+            } else {
+                switch (entradas) {
+                    case 1:
+                        calculo = entradas * valorEntrada;
+                        resul = `El valor de la entrada es de ${calculo}`;
+                        break;
+                    case 2:
+                        calculo = (entradas * valorEntrada) - (entradas * valorEntrada) * 0.10;
+                        resul = `El valor de la entrada es de ${calculo}`;
+                        break;
+                    case 3:
+                        calculo = (entradas * valorEntrada) - (entradas * valorEntrada) * 0.15;
+                        resul = `El valor de la entrada es de ${calculo}`;
+                        break;
+                    case 4:
+                        calculo = (entradas * valorEntrada) - (entradas * valorEntrada) * 0.20;
+                        resul = `El valor de la entrada es de ${calculo}`;
+                        break;
+                }
             }
+
+            document.getElementById('mostrar-resul24').textContent = resul   // muestra el resultado 
+        }else{
+            alert("Solo valores númericos");
+            document.getElementById('mostrar-resul24').textContent = "";
+            document.getElementById('entradas').value = "";
+
         }
 
 
-
-        document.getElementById('mostrar-resul24').textContent = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('mostrar-resul24').textContent = "";
+        document.getElementById('entradas').value = "";
     });
 });
 
@@ -1019,43 +1038,23 @@ document.addEventListener("DOMContentLoaded", () => {
         var velocidad = parseInt(document.getElementById('velocidad').value); // toma el valor del input
         console.log(velocidad);
 
-        calculo = ((velocidad * 1000) / 1) / 3600;
-        resul = `la velocidad en M/S es de: ${calculo.toFixed(2)}`;
+        if(!isNaN(velocidad)){
+            calculo = ((velocidad * 1000) / 1) / 3600;
+            resul = `la velocidad en M/S es de: ${calculo.toFixed(2)}`;
+    
+            document.getElementById('mostrar-resul25').textContent = resul   // muestra el resultado 
+        }else{
+            alert("Ingresa datos númericos");
+        }
 
-        document.getElementById('mostrar-resul25').textContent = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('mostrar-resul25').textContent = "";
+        document.getElementById('velocidad').value = "";
     });
 });
 
-// ejercicio 25
-document.addEventListener("DOMContentLoaded", () => {
-    const bntAbrirmodal = document.querySelector(".bin-abrir-modal25");
-    const bntCerrarmodal = document.querySelector(".bin-cerrar-modal25");
-    const bntCalcular = document.querySelector(".bin-CalArea-modal25");
-    const modal = document.querySelector(".modal25");
-    var resul = "";
-    var calculo;
-
-    bntAbrirmodal.addEventListener("click", () => {
-        modal.setAttribute("open", "true");
-    });
-
-    bntCalcular.addEventListener("click", () => {
-
-        var velocidad = parseInt(document.getElementById('velocidad').value); // toma el valor del input
-        console.log(velocidad);
-
-        calculo = ((velocidad * 1000) / 1) / 3600;
-        resul = `la velocidad en M/S es de: ${calculo.toFixed(2)}`;
-
-        document.getElementById('mostrar-resul25').textContent = resul   // muestra el resultado 
-    })
-    bntCerrarmodal.addEventListener("click", () => {
-        modal.removeAttribute("open");
-    });
-});
 
 // ejercicio 26
 document.addEventListener("DOMContentLoaded", () => {
@@ -1095,7 +1094,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (calculo > 3) {
             resul = `Señor ${nombre} su nota definitiva es de ${calculo} aprobo la materia`;
 
-        } else {
+        } else if(calculo < 3) {
             resul = `Señor ${nombre} su nota definitiva es de ${calculo} reprobo la materia`;
         }
 
@@ -1103,6 +1102,10 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('mostrar-resul26').textContent = "";
+        document.getElementById('nota1').value = "";
+        document.getElementById('nota2').value = "";
+        document.getElementById('nota3').value = "";
     });
 });
 
@@ -1124,14 +1127,22 @@ document.addEventListener("DOMContentLoaded", () => {
         var h_trabajadas = parseFloat(document.getElementById('h_trabajadas').value); // toma el valor del input
         console.log(h_trabajadas);
 
-        calculo = (h_trabajadas * 30000) * 50;
-        var valorComoMonedaColombiana = calculo.toLocaleString('es-CO', { style: 'currency', currency: 'COP' });//para darle formato de peso colombiano
-        resul = `la nómina total es de: ${valorComoMonedaColombiana}`;
+        if (!isNaN(h_trabajadas)) {
+            calculo = (h_trabajadas * 30000) * 50;
+            var valorComoMonedaColombiana = calculo.toLocaleString('es-CO', { style: 'currency', currency: 'COP' });//para darle formato de peso colombiano
+            resul = `la nómina total es de: ${valorComoMonedaColombiana}`;
 
-        document.getElementById('mostrar-resul27').textContent = resul   // muestra el resultado 
+            document.getElementById('mostrar-resul27').textContent = resul   // muestra el resultado 
+        }else{
+            alert("ingrese solo datos númericos");
+        }
+
+
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('mostrar-resul27').textContent = "";
+        document.getElementById('h_trabajadas').value = "";
     });
 });
 
@@ -1151,24 +1162,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bntCalcular.addEventListener("click", () => {
 
+
         var nFactorial = parseFloat(document.getElementById('nFactorial').value); // toma el valor del input
         console.log(nFactorial);
 
-        function factorial(n) {
-            if (n === 0 || n === 1) {
-                return 1;
-            } else {
-                return n * factorial(n - 1);
+        
+        if(!isNaN(nFactorial)){
+            function factorial(n) {
+                if (n === 0 || n === 1) {
+                    return 1;
+                } else {
+                    return n * factorial(n - 1);
+                }
             }
+            calculo = factorial(nFactorial);
+    
+            resul = `El factorial de ${nFactorial} es: ${calculo}`
+    
+            document.getElementById('mostrar-resul28').textContent = resul   // muestra el resultado 
+        }else{
+            alert("Solo datos númericos");
         }
-        calculo = factorial(nFactorial);
-
-        resul = `El factorial de ${nFactorial} es: ${calculo}`
-
-        document.getElementById('mostrar-resul28').textContent = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
+        document.getElementById('mostrar-resul28').textContent = "";
+        document.getElementById('nFactorial').value = "";
     });
 });
 
@@ -1215,6 +1234,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bntCalcular.addEventListener("click", () => {
         var nPositivo = parseFloat(document.getElementById('nPositivo').value); // toma el valor del input
+
+        if(isNaN(nPositivo) || nPositivo < 0){
+            alert("ingresa el dato y que no sea negativo");
+            return;
+
+        }
 
         function esPrimo(n) {
             if (n <= 1) return false;
