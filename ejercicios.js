@@ -421,6 +421,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!isNaN(arr1) && !isNaN(arr2) && !isNaN(arr3) && !isNaN(arr4)) {
 
+            if (arr1 === arr2 || arr1 === arr3 || arr1 === arr4 || arr2 === arr3 || arr2 === arr4 || arr3 === arr4) {
+                alert("Los valores no pueden ser iguales.");
+                return;
+            }
+
 
             let arr = [arr1, arr2, arr3, arr4];
             var len = arr.length;
@@ -510,9 +515,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         console.log(contador);
 
-        resul = `Los numeros a sumar son: ${numeroscontador} y la suma de los multiplos de 5 es: ${contador} `  //` alt + 96 para sacar la comillita
+        resul = `Los numeros a sumar son: <br> ${numeroscontador} <br> la suma de los multiplos de 5 es: ${contador} `  //` alt + 96 para sacar la comillita
 
-        document.getElementById('mostrar-resul13').textContent = resul   // muestra el resultado 
+        document.getElementById('mostrar-resul13').innerHTML = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
@@ -549,9 +554,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         console.log(contador);
 
-        resul = `Los numeros a sumar son: ${numeroscontador} y la suma de los numeros pares es: ${contador} `  //` alt + 96 para sacar la comillita
+        resul = `Los numeros a sumar son:<br> ${numeroscontador} <br> La suma de los numeros pares es: ${contador} `  //` alt + 96 para sacar la comillita
 
-        document.getElementById('mostrar-resul14').textContent = resul   // muestra el resultado 
+        document.getElementById('mostrar-resul14').innerHTML = resul   // muestra el resultado 
     })
     bntCerrarmodal.addEventListener("click", () => {
         modal.removeAttribute("open");
